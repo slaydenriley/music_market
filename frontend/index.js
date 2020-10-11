@@ -2,6 +2,7 @@ const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const allUsers = document.querySelector(".all-users");
 const singleUser = document.querySelector(".single-user");
+const allListings = document.querySelector(".all-listings");
 const BACKEND_URL = "http://localhost:3000"
 
 function hideLogin() {
@@ -66,12 +67,32 @@ function logIn() {
   }
 
   fetch(`${BACKEND_URL}/login`, configObj)
-  .then(resp => resp.json())
-  .then(resp => showUser(resp))
+  .then(user => user.json())
+  .then(user => showMainPage(user))
 }
 
-function showUser(resp) {
+
+function showMainPage(user) {
   hideLogin()
   hideSignup()
-  singleUser.innerHTML += `<div><h3> Welcome ${resp.name}! <h3></div>`
+  singleUser.innerHTML += `<div><h3> Welcome ${user.name}! <h3></div>`
+  showListings()
+}
+
+function showListings() {
+  console.log("called!")
+  fetch(`${BACKEND_URL}/listings`)
+  .then(list => list.json())
+  .then(list => renderList(list))
+}
+
+function renderList(list) {
+  console.log(list)
+  list.forEach(listing => {
+    console.log(listing)
+    allListings.innerHTML += `<div><h3> ${listing} <h3></div><br/>`
+  })
+}
+function showUser(resp) {
+
 }
