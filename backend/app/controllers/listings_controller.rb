@@ -1,11 +1,11 @@
 class ListingsController < ApplicationController
   def show
     listing = Listing.find_by(id: params[:id])
-    render json: listing.to_json
+    render json: ListingSerializer.new(listing).to_serialized_json
   end
 
   def index
     listings = Listing.all
-    render json: listings.to_json
+    render json: ListingSerializer.new(listing).to_serialized_json
   end
 end
