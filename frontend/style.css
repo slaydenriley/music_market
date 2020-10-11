@@ -1,3 +1,12 @@
-.homescreen {
-  align-items: center;
+body {
+  justify-content: center;
+  text-align: center;
+}
+
+.login-form, .signup-form {
+  margin: 0 auto;
+  background: lightblue;
+  padding: 20px;
+  width: 20%;
+  border-radius: 10px;
 }
