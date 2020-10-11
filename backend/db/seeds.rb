@@ -9,5 +9,5 @@
 riley = User.create(name: "Riley Slayden", email: "slaydenriley@gmail.com", password_digest: "codydog")
 morgan = User.create(name: "Morgan Hubbard", email: "mbhubbard@gmail.com", password_digest: "codydog")
 
-banjo = riley.listings.new(title: "Banjo for Sale!", price: "$200", description: "Very nice banjo for sale!")
-fiddle = morgan.listings.new(title: "Fiddle for Sale", price: "$1000", description: "Very nice fiddle for sale!"
+banjo = Listing.create(title: "Banjo for Sale!", price: "$200", description: "Very nice banjo for sale!")
+fiddle = Listing.create(title: "Fiddle for Sale", price: "$1000", description: "Very nice fiddle for sale!")
