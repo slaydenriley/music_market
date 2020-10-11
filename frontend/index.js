@@ -1,6 +1,7 @@
 const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const allUsers = document.querySelector(".all-users");
+const singleUser = document.querySelector(".single-user");
 const BACKEND_URL = "http://localhost:3000"
 
 function hideLogin() {
@@ -40,40 +41,37 @@ function renderUsers(users) {
     })
 }
 
-function logIn(e) {
-    e.preventDefault();
+const loginsubmit = document.querySelector(".loginsubmit")
 
-    let userInputForUsername = document.querySelector("#usernameForLogIn").value;
+loginsubmit.addEventListener('click', (e) => {
+  logIn(e)
+})
 
-    let formData = {
-        username: userInputForUsername
-    }
+function logIn() {
+  let userInputForUsername = document.querySelector("#username").value;
+  let userInputForPassword = document.querySelector("#password").value;
 
-    let configObj = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(formData)
-    }
+  let formData = {
+      username: userInputForUsername,
+      password: userInputForPassword
+  }
 
-    fetch(`${BACKEND_URL}/login`, configObj)
-    .then(resp => resp.json())
-    .then(parsedResp => {
-        if (parsedResp.username) {
+  let configObj = {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+  }
 
-            newComment(parsedResp.id);
+  fetch(`${BACKEND_URL}/login`, configObj)
+  .then(resp => resp.json())
+  .then(resp => showUser(resp))
+}
 
-            const currentUser = document.querySelector("#current-user");
-            currentUser.innerText = parsedResp.username;
-
-            const highScore = document.querySelector("#levels-completed");
-            if (parsedResp.levels_completed === 0) {
-                highScore.innerText = `${parsedResp.levels_completed} levels completed`;
-            } else if (parsedResp.levels_completed === 1) {
-                highScore.innerText = `${parsedResp.levels_completed} level completed`;
-            }
-        }
-    });
+function showUser(resp) {
+  hideLogin()
+  hideSignup()
+  singleUser.innerHTML += `<div><h3> Welcome ${resp.name}! <h3></div>`
 }
