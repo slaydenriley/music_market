@@ -6,6 +6,6 @@ class ListingsController < ApplicationController
 
   def index
     listings = Listing.all
-    render json: ListingSerializer.new(listing).to_serialized_json
+    render json: ListingSerializer.new(listings).to_serialized_json
   end
 end
