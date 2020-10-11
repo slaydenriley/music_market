@@ -21,3 +21,9 @@ signup.addEventListener('click', function showSignup() {
   hideLogin()
   signupForm.style.display = "block"
 })
+
+users.addEventListener('click', function showUsers() {
+  fetch("http://localhost:3000/users")
+  .then(users => users.json())
+  .then(users => console.log(users[0].name))
+})
