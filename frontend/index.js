@@ -3,7 +3,10 @@ const signupForm = document.querySelector(".signup-form");
 const allUsers = document.querySelector(".all-users");
 const singleUser = document.querySelector(".single-user");
 const allListings = document.querySelector(".all-listings");
+const loginsubmit = document.querySelector(".loginsubmit")
 const BACKEND_URL = "http://localhost:3000"
+
+Welcome()
 
 function hideLogin() {
   loginForm.style.display = "none"
@@ -13,8 +16,15 @@ function hideSignup() {
   signupForm.style.display = "none"
 }
 
-hideLogin()
-hideSignup()
+function hideLogout() {
+  logout.style.display = "none"
+}
+
+function Welcome() {
+  hideLogin()
+  hideSignup()
+  hideLogout()
+}
 
 login.addEventListener('click', function showLogin() {
   hideSignup()
@@ -25,24 +35,6 @@ signup.addEventListener('click', function showSignup() {
   hideLogin()
   signupForm.style.display = "block"
 })
-
-users.addEventListener('click', function showUsers() {
-  fetch(`${BACKEND_URL}/users`)
-  .then(users => users.json())
-  .then(users => renderUsers(users))
-})
-
-function renderUsers(users) {
-  allUsers.innerHTML = ""
-    users.forEach(user => {
-        allUsers.innerHTML += `<div>
-        <h3> ${user.name} <h3>
-
-      </div>`
-    })
-}
-
-const loginsubmit = document.querySelector(".loginsubmit")
 
 loginsubmit.addEventListener('click', (e) => {
   logIn(e)
@@ -75,12 +67,22 @@ function logIn() {
 function showMainPage(user) {
   hideLogin()
   hideSignup()
-  singleUser.innerHTML += `<div><h3> Welcome ${user.name}! <h3></div>`
+  hideButtons()
+  showLogout()
+  singleUser.innerHTML += `<div><p><em> Welcome ${user.name}! <p></em></div>`
   showListings()
 }
 
+function hideButtons() {
+  login.style.display = "none"
+  signup.style.display = "none"
+}
+
+function showLogout() {
+  logout.style.display = "block"
+}
+
 function showListings() {
-  console.log("called!")
   fetch(`${BACKEND_URL}/listings`)
   .then(list => list.json())
   .then(list => renderList(list))
@@ -89,10 +91,6 @@ function showListings() {
 function renderList(list) {
   console.log(list)
   list.forEach(listing => {
-    console.log(listing)
-    allListings.innerHTML += `<div><h3> ${listing} <h3></div><br/>`
+    allListings.innerHTML += `<div><h2> ${listing.title} - ${listing.price} <h2></div>`
   })
-}
-function showUser(resp) {
-
 }
