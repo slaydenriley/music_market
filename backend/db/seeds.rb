@@ -15,7 +15,7 @@ def User.digest(string)
 end
 
 riley = User.create(name: "Riley Slayden", username: "rileyslayden", email: "slaydenriley@gmail.com", password_digest: "#{User.digest('codydog')}")
-morgan = User.create(name: "Morgan Hubbard", username: "morganhubbard",email: "mbhubbard@gmail.com", password_digest: "codydog")
+morgan = User.create(name: "Morgan Hubbard", username: "morganhubbard",email: "mbhubbard@gmail.com", password_digest: "#{User.digest('codydog')}")
 
 banjo = riley.listings.build(title: "Banjo for Sale!", price: "$200", description: "Very nice banjo for sale!")
 fiddle = morgan.listings.build(title: "Fiddle for Sale", price: "$1000", description: "Very nice fiddle for sale!")
