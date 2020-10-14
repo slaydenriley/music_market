@@ -40,6 +40,10 @@ loginsubmit.addEventListener('click', (e) => {
   logIn(e)
 })
 
+logout.addEventListener('click', function logout() {
+  window.location.reload();
+})
+
 function logIn() {
   let userInputForUsername = document.querySelector("#username").value;
   let userInputForPassword = document.querySelector("#password").value;
