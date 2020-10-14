@@ -96,6 +96,6 @@ function showListings() {
 function renderList(list) {
   console.log(list)
   list.forEach(listing => {
-    allListings.innerHTML += `<div><h2> ${listing.title} - ${listing.price} <h2></div>`
+    allListings.innerHTML += `<a href=${BACKEND_URL}/listings/${listing.id}><div><h2> ${listing.title} - ${listing.price} <h2></div></a>`;
   })
 }
