@@ -41,6 +41,7 @@ loginsubmit.addEventListener('click', (e) => {
 })
 
 logout.addEventListener('click', function logout() {
+  localStorage.clear();
   window.location.reload();
 })
 
