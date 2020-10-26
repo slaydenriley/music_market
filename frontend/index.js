@@ -68,6 +68,31 @@ function logIn() {
   .then(user => showMainPage(user))
 }
 
+function signUp() {
+  let userInputForName = document.querySelector("#name").value;
+  let userInputForUsername = document.querySelector("#signup_username").value;
+  let userInputForPassword = document.querySelector("#signup_password").value;
+  let userInputForPasswordConfirmation = docment.querySelector("#password_confirm").value;
+
+  let formData = {
+    name: userInputForName,
+    password: userInputForPassword,
+  }
+
+  let configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(formData)
+  }
+
+  fetch(`${BACKEND_URL}/signup`, configObj)
+  .then(user => user.json())
+  .then(user => console.log("Signed Up!"))
+}
+
 
 function showMainPage(user) {
   hideLogin()
