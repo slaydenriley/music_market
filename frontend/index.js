@@ -80,11 +80,13 @@ function signUp() {
   let userInputForEmail = document.querySelector("#email").value;
 
   let formData = {
-    name: userInputForName,
-    password: userInputForPassword,
-    password_confirmation: userInputForPasswordConfirmation,
-    username: userInputForNewUsername,
-    email: userInputForEmail
+    user: {
+      name: userInputForName,
+      password: userInputForPassword,
+      password_confirmation: userInputForPasswordConfirmation,
+      username: userInputForNewUsername,
+      email: userInputForEmail
+    }
   }
 
   let configObj = {
@@ -95,6 +97,7 @@ function signUp() {
     },
     body: JSON.stringify(formData)
   }
+
 
   fetch(`${BACKEND_URL}/signup`, configObj)
   .then(user => user.json())
