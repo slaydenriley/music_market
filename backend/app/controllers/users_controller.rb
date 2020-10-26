@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    binding.pry
     if user.save
       render json: UserSerializer.new(user).to_serialized_json
       session[:user_id] = user.id
@@ -27,7 +28,8 @@ class UsersController < ApplicationController
       :name,
       :email,
       :username,
-      :password_digest
+      :password,
+      :password_confirmation
     )
   end
 end
