@@ -68,15 +68,23 @@ function logIn() {
   .then(user => showMainPage(user))
 }
 
+signup_submit.addEventListener('click', (e) => {
+  signUp(e)
+})
+
 function signUp() {
   let userInputForName = document.querySelector("#name").value;
-  let userInputForUsername = document.querySelector("#signup_username").value;
+  let userInputForNewUsername = document.querySelector("#signup_username").value;
   let userInputForPassword = document.querySelector("#signup_password").value;
-  let userInputForPasswordConfirmation = docment.querySelector("#password_confirm").value;
+  let userInputForPasswordConfirmation = document.querySelector("#password_confirm").value;
+  let userInputForEmail = document.querySelector("#email").value;
 
   let formData = {
     name: userInputForName,
     password: userInputForPassword,
+    password_confirmation: userInputForPasswordConfirmation,
+    username: userInputForNewUsername,
+    email: userInputForEmail
   }
 
   let configObj = {
@@ -90,7 +98,7 @@ function signUp() {
 
   fetch(`${BACKEND_URL}/signup`, configObj)
   .then(user => user.json())
-  .then(user => console.log("Signed Up!"))
+  .then(user => showMainPage(user))
 }
 
 
