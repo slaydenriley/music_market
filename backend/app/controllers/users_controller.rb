@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   def show
     user = User.find_by(id: params[:id])
@@ -10,13 +11,23 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by(username: params[:username])
-    user.name = params[:name]
-    if params[:password] == params[:confirm_password]
-      user.password_digest = params[:password]
-      user.save
+    user = User.new(user_params)
+    if user.save
+      render json: UserSerializer.new(user).to_serialized_json
+      session[:user_id] = user.id
     else
-      render plain: "Didn't work"
+      binding.pry
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(
+      :name,
+      :email,
+      :username,
+      :password_digest
+    )
   end
 end
