@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       render json: UserSerializer.new(user).to_serialized_json
       session[:user_id] = user.id
     else
-      binding.pry
+      
     end
   end
 
