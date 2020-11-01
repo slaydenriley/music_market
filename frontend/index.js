@@ -20,10 +20,18 @@ function hideLogout() {
   logout.style.display = "none"
 }
 
+function hideLoggedButtons() {
+  account.style.display = "none"
+  listings.style.display = "none"
+  users.style.display = "none"
+
+}
+
 function Welcome() {
   hideLogin()
   hideSignup()
   hideLogout()
+  hideLoggedButtons()
 }
 
 login.addEventListener('click', function showLogin() {
@@ -109,9 +117,8 @@ function showMainPage(user) {
   hideLogin()
   hideSignup()
   hideButtons()
-  showLogout()
+  showButtons()
   singleUser.innerHTML += `<div><p><em> Welcome ${user.name}! <p></em></div>`
-  showListings()
 }
 
 function hideButtons() {
@@ -119,19 +126,34 @@ function hideButtons() {
   signup.style.display = "none"
 }
 
-function showLogout() {
+function showButtons() {
   logout.style.display = "block"
+  listings.style.display = "block"
+  users.style.display = "block"
+  account.style.display = "block"
 }
 
-function showListings() {
+listings.addEventListener("click", function showListings() {
+
   fetch(`${BACKEND_URL}/listings`)
   .then(list => list.json())
   .then(list => renderList(list))
+
+  hide()
+})
+
+function hide() {
+  document.querySelector("#all-listings").style.display = "none"
 }
 
+
+
 function renderList(list) {
-  console.log(list)
   list.forEach(listing => {
     allListings.innerHTML += `<a href=${BACKEND_URL}/listings/${listing.id}><div><h2> ${listing.title} - ${listing.price} <h2></div></a>`;
   })
+}
+
+function showListing() {
+  fetch(`${BACKEND_URL}/listings/1`)
 }

@@ -1,20 +1,70 @@
 body {
-  justify-content: center;
-  text-align: center;
+  background: grey;
+  margin: 0;
+
+}
+
+.header {
+  background-color: black;
+  margin: 0;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#title {
+  color: white;
+  margin: 0;
+}
+
+
+.main-menu {
+  text-align: left;
+  background-color: white;
+}
+
+.row1 {
+  width: 200px;
+  float: left;
+  margin-left: 20px;
+}
+
+.row2 {
+  float: left;
+  width: 500px;
+}
+
+.main-menu button {
+  width: 100%;
+  background-color: #ffffff00; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.main-menu button:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.main-menu button.active {
+  background-color: #4CAF50; /* Add a green color to the "active/current" link */
+  color: white;
 }
 
 .login-form, .signup-form {
-  margin: 0 auto;
-  background: lightblue;
+  text-align: center;
+  background: white;
   padding: 20px;
-  width: 20%;
+  width: 100%;
   border-radius: 10px;
+  margin-left: 40px;
 }
 
 .homescreen {
   margin: 0 auto;
 }
 
-button {
-  margin: 0 auto;
+#main-menu-text {
+  color: white;
+  text-align: center;
 }
