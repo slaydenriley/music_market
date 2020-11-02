@@ -1,4 +1,3 @@
-
 class UsersController < ApplicationController
   def show
     user = User.find_by(id: params[:id])
@@ -12,12 +11,11 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    binding.pry
     if user.save
       render json: UserSerializer.new(user).to_serialized_json
       session[:user_id] = user.id
     else
-      
+  
     end
   end
 
