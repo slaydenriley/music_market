@@ -3,8 +3,9 @@ const signupForm = document.querySelector(".signup-form");
 const allUsers = document.querySelector(".all-users");
 const singleUser = document.querySelector(".single-user");
 const allListings = document.querySelector(".all-listings");
-const loginsubmit = document.querySelector(".loginsubmit")
-const BACKEND_URL = "http://localhost:3000"
+const loginsubmit = document.querySelector(".loginsubmit");
+const headerright = document.querySelector(".headerright");
+const BACKEND_URL = "http://localhost:3000";
 
 Welcome()
 
@@ -49,8 +50,14 @@ loginsubmit.addEventListener('click', (e) => {
 })
 
 logout.addEventListener('click', function logout() {
-  localStorage.clear();
-  window.location.reload();
+  if (confirm("Are you sure you want to logout?")) {
+    alert("Logging you out!");
+    localStorage.clear();
+    window.location.reload();
+  }
+  else {
+    alert("Not logged out");
+  }
 })
 
 function logIn() {
@@ -118,7 +125,7 @@ function showMainPage(user) {
   hideSignup()
   hideButtons()
   showButtons()
-  singleUser.innerHTML += `<div><p><em> Welcome ${user.name}! <p></em></div>`
+  headerright.innerHTML += `<em> Welcome ${user.name}!</em>`
 }
 
 function hideButtons() {
