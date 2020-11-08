@@ -2,11 +2,10 @@ const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const allUsers = document.querySelector(".all-users");
 const singleUser = document.querySelector(".single-user");
-const allListings = document.querySelector(".all-listings");
+const allListings = document.querySelector(".all-listings-cards");
 const loginsubmit = document.querySelector(".loginsubmit");
 const headerright = document.querySelector(".headerright");
 const BACKEND_URL = "http://localhost:3000";
-
 Welcome()
 
 function hideLogin() {
@@ -21,6 +20,10 @@ function hideLogout() {
   logout.style.display = "none"
 }
 
+function hideListings() {
+  allListings.style.display = "none"
+}
+
 function hideLoggedButtons() {
   account.style.display = "none"
   listings.style.display = "none"
@@ -33,6 +36,7 @@ function Welcome() {
   hideSignup()
   hideLogout()
   hideLoggedButtons()
+  hideListings()
 }
 
 login.addEventListener('click', function showLogin() {
@@ -146,21 +150,29 @@ listings.addEventListener("click", function showListings() {
   .then(list => list.json())
   .then(list => renderList(list))
 
-  hide()
+
 })
 
 function hide() {
-  document.querySelector("#all-listings").style.display = "none"
+  document.querySelector(".all-listings.cards").style.display = "none"
 }
-
 
 
 function renderList(list) {
+  let listingTitle = document.querySelector(".listing-title");
+  let listingPrice = document.querySelector(".listing-price");
+  const card = document.querySelector(".card");
+
+  document.querySelector(".all-listings-cards").style.display = "block"
   list.forEach(listing => {
-    allListings.innerHTML += `<a href=${BACKEND_URL}/listings/${listing.id}><div><h2> ${listing.title} - ${listing.price} <h2></div></a>`;
+    allListings.innerHTML += `<div class="card"><h3>${listing.title}</h3> - <h4>${listing.price}</h4></div>`
   })
 }
 
-function showListing() {
-  fetch(`${BACKEND_URL}/listings/1`)
+
+
+class Listings {
+  constructor(listingAttr) {
+    this.title = listingAttr.title
+  }
 }
