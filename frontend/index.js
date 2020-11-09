@@ -5,7 +5,12 @@ const singleUser = document.querySelector(".single-user");
 const allListings = document.querySelector(".all-listings-cards");
 const loginsubmit = document.querySelector(".loginsubmit");
 const headerright = document.querySelector(".headerright");
+const listingForm = document.querySelector(".listing-form");
+let current_user_id
 const BACKEND_URL = "http://localhost:3000";
+
+//DOM SETUP//
+
 Welcome()
 
 function hideLogin() {
@@ -22,6 +27,7 @@ function hideLogout() {
 
 function hideListings() {
   allListings.style.display = "none"
+  listingForm.style.display = "none"
 }
 
 function hideLoggedButtons() {
@@ -38,6 +44,13 @@ function Welcome() {
   hideLoggedButtons()
   hideListings()
 }
+
+function clearPage() {
+
+}
+
+//--------------------------//
+//LOGIN ACTIONS//
 
 login.addEventListener('click', function showLogin() {
   hideSignup()
@@ -87,6 +100,10 @@ function logIn() {
   .then(user => showMainPage(user))
 }
 
+
+//------------------//
+// SIGNUP ACTIONS //
+
 signup_submit.addEventListener('click', (e) => {
   signUp(e)
 })
@@ -121,8 +138,11 @@ function signUp() {
   fetch(`${BACKEND_URL}/signup`, configObj)
   .then(user => user.json())
   .then(user => showMainPage(user))
+
 }
 
+//-------------------//
+// LOGGED IN DOM SETUP //
 
 function showMainPage(user) {
   hideLogin()
@@ -130,6 +150,8 @@ function showMainPage(user) {
   hideButtons()
   showButtons()
   headerright.innerHTML += `<em> Welcome ${user.name}!</em>`
+
+  current_user_id = user.id
 }
 
 function hideButtons() {
@@ -145,7 +167,7 @@ function showButtons() {
 }
 
 listings.addEventListener("click", function showListings() {
-  document.querySelector(".all-listings-cards").innerHTML = `<div class="card"></div>`
+  allListings.innerHTML = ""
 
   fetch(`${BACKEND_URL}/listings`)
   .then(list => list.json())
@@ -153,24 +175,32 @@ listings.addEventListener("click", function showListings() {
 
 })
 
-
-
 function renderList(list) {
-  let listingTitle = document.querySelector(".listing-title");
-  let listingPrice = document.querySelector(".listing-price");
-  const card = document.querySelector(".card");
+
+  allListings.innerHTML += `<button class="new-listing-button">New Listing</button>`
 
   document.querySelector(".all-listings-cards").style.display = "block"
-
   list.forEach(listing => {
-    allListings.innerHTML += `<div class="card"><h3>${listing.title}</h3> - <h4>${listing.price}</h4></div>`
+    allListings.innerHTML += `<div class="card"><h3>${listing.title}</h3> <h4>${listing.price}</h4></div>`
   })
+
 }
 
+//newListingButton.addEventListener("click", function showListingForm() {
+//  console.log("clicked!")
+//  Welcome();
+//  listingForm.style.display = "block"
+//})
 
+account.addEventListener("click", function showAccount() {
+  hideListings();
 
-class Listings {
-  constructor(listingAttr) {
-    this.title = listingAttr.title
-  }
+  //hideUsers();
+  fetch(`${BACKEND_URL}/users/${current_user_id}`)
+  .then(user => user.json())
+  .then(user => renderUser(user))
+})
+
+function renderUser(user) {
+  singleUser.innerHTML += `<h1>${user.name}</h1> <h2>${user.username}</h2> <button class="edit-account">Edit Account</button>`
 }
