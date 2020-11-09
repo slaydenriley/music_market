@@ -1,5 +1,5 @@
 
-
+/*
   Welcome()
 
   function hideLogin() {
@@ -144,3 +144,4 @@
     users.style.display = "block"
     account.style.display = "block"
   }
+*/
