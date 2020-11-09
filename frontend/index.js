@@ -145,17 +145,14 @@ function showButtons() {
 }
 
 listings.addEventListener("click", function showListings() {
+  document.querySelector(".all-listings-cards").innerHTML = `<div class="card"></div>`
 
   fetch(`${BACKEND_URL}/listings`)
   .then(list => list.json())
   .then(list => renderList(list))
 
-
 })
 
-function hide() {
-  document.querySelector(".all-listings.cards").style.display = "none"
-}
 
 
 function renderList(list) {
@@ -164,6 +161,7 @@ function renderList(list) {
   const card = document.querySelector(".card");
 
   document.querySelector(".all-listings-cards").style.display = "block"
+
   list.forEach(listing => {
     allListings.innerHTML += `<div class="card"><h3>${listing.title}</h3> - <h4>${listing.price}</h4></div>`
   })
