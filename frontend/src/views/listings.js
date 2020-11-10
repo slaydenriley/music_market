@@ -1,27 +1,25 @@
 class Listings {
   constructor() {
     this.listings = []
-    this.fetchLoadListings()
     this.listeners()
   }
+  newListingButton = document.getElementById("new-listing-button");
 
   listeners() {
-
-    //listings.addEventListener("click", this.fetchLoadListings.bind(this))
+    listings_button.addEventListener("click", function() {
+      clearMain()
+      let fetchListings = new ListingFetcher
+    })
+    newListingButton.addEventListener("click", function() {
+      console.log("I was clicked!")
+    })
   }
 
-  fetchLoadListings() {
-    fetch(`${BACKEND_URL}/listings`)
-    .then(list => list.json())
-    .then(list => renderList(list))
+  static renderList(list) {
+    document.querySelector(".all-listings-cards").style.display = "block";
+
+    list.forEach(listing => {
+      allListings.innerHTML += `<div class="card"><h3>${listing.title}</h3> <h4>${listing.price}</h4></div>`
+    })
   }
-}
-
-function renderList(list) {
-  allListings.innerHTML += `<button class="new-listing-button">New Listing</button>`;
-  document.querySelector(".all-listings-cards").style.display = "block";
-
-  list.forEach(listing => {
-    allListings.innerHTML += `<div class="card"><h3>${listing.title}</h3> <h4>${listing.price}</h4></div>`
-  })
 }

@@ -2,10 +2,10 @@ class SessionFetcher {
   constructor() {
     if (loggingIn == true) {
       this.logIn();
-    };
+    }
     else if (signingUp == true) {
       this.signUp();
-    };
+    }
     else {
       console.log("well....?")
     };
@@ -49,7 +49,7 @@ class SessionFetcher {
         password_confirmation: userInputForPasswordConfirmation,
         username: userInputForNewUsername,
         email: userInputForEmail
-      };
+      }
     };
 
     let configObj = {
@@ -63,7 +63,7 @@ class SessionFetcher {
 
 
     fetch(`${BACKEND_URL}/signup`, configObj)
-    .then(user => user.json());
-    .then(user => showMainPage(user));
+    .then(user => user.json())
+    .then(user => showMainPage(user))
   };
 }
