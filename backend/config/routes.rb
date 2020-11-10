@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   post '/listings', to: 'listings#create'
   patch '/listings', to: 'listings#edit'
+  delete '/listings', to: 'listings#destroy'
 
 end
