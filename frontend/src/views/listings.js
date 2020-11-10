@@ -1,10 +1,10 @@
 // LISTING CLASS CALLED WHEN LOGGED IN FROM APP CLASS //
 class Listings {
   constructor() {
-    this.listings = [];
     this.listeners();
   };
 
+// LISTENS FOR BUTTON CLICKS //
   listeners() {
     listings_button.addEventListener("click", function() {
       let fetchListings = new ListingFetcher

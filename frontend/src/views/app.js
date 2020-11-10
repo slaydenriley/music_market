@@ -30,6 +30,7 @@ class App {
     }
   };
 
+// LISTENS FOR BUTTON CLICKS //
   listeners() {
     login.addEventListener('click', function showLogin() {
       App.clearPage();
@@ -65,6 +66,7 @@ class App {
     });
   };
 
+// GENERAL FUNCTIONS CHANGING THE VIEW OF THE APP //
   static clearPage() {
     loginForm.style.display = "none";
     signupForm.style.display = "none";

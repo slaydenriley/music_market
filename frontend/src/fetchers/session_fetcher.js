@@ -1,3 +1,4 @@
+// THIS CLASS DEALS WITH LOGGING IN AND SIGNING UP AND COMMUNICATES WITH RAILS API //
 class SessionFetcher {
   constructor() {
     if (loggingIn == true) {
@@ -11,6 +12,7 @@ class SessionFetcher {
     };
   };
 
+// LOGIN FETCH //
   logIn() {
     let userInputForUsername = document.querySelector("#username").value;
     let userInputForPassword = document.querySelector("#password").value;
@@ -34,6 +36,7 @@ class SessionFetcher {
       .then(user => App.showMainPage(user))
   };
 
+// SIGNUP POST REQUEST //
   signUp() {
     console.log("we are on signup")
     let userInputForName = document.querySelector("#name").value;

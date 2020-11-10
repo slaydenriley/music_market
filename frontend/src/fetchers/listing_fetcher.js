@@ -1,23 +1,26 @@
+// LISTING FETCHER COMMUNICATES WITH RAILS API FOR LISTINGS //
 class ListingFetcher {
   constructor() {
-    this.fetchListings()
-  }
+    this.fetchListings;
+  };
 
+
+// FETCHES ALL LISTINGS //
   fetchListings() {
     fetch(`${BACKEND_URL}/listings`)
     .then(listings => listings.json())
     .then(listings => Listings.renderList(listings))
-  }
+  };
 
+// FETCHES SINGLE LISTING //
   static fetchSingleListing(id) {
     fetch(`${BACKEND_URL}/listings/${id}`)
     .then(listing => listing.json())
     .then(listing => Listings.renderSingleListing(listing))
-  }
+  };
 
+// NEW LISTING POST REQUEST //
   static post() {
-    console.log("starting to post!")
-
     let userInputForTitle = document.querySelector("#listing_title").value;
     let userInputForPrice = document.querySelector("#listing_price").value;
     let userInputForDescription = document.querySelector("#listing_description").value;
@@ -41,5 +44,5 @@ class ListingFetcher {
       fetch(`${BACKEND_URL}/listings`, configObj)
       .then(listing => listing.json())
       .then(listing => Listings.renderSingleListing(listing))
-  }
-}
+  };
+};
