@@ -61,8 +61,6 @@ class ListingFetcher {
       id: id,
     };
 
-    console.log(formData)
-
     let configObj = {
        method: "PATCH",
        headers: {
@@ -70,7 +68,7 @@ class ListingFetcher {
            "Accept": "application/json"
          },
          body: JSON.stringify(formData)
-       };
+      };
 
       fetch(`${BACKEND_URL}/listings`, configObj)
       .then(listing => listing.json())
@@ -79,7 +77,22 @@ class ListingFetcher {
   };
 
 // DELETE LISTING //
-  static deleteListing() {
-    console.log("will be deleted")
-  }
+  static deleteListing(id) {
+    let formData = {
+      id: id
+    }
+
+    let configObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+    };
+
+    fetch(`${BACKEND_URL}/listings/`, configObj)
+    .then(resp => resp.json())
+    .then(resp => App.clearMain())
+  };
 };

@@ -63,7 +63,7 @@ class Listings {
 
     if (current_user_id === listing.user_id) {
       Listings.editButton(listing);
-      Listings.deleteButton();
+      Listings.deleteButton(listing.id);
     };
   };
 
