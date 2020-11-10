@@ -1,3 +1,4 @@
+// HTML ELEMENTS ASSIGNED TO VARIABLES //
 const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const allUsers = document.querySelector(".all-users");
@@ -7,13 +8,13 @@ const loginsubmit = document.querySelector(".loginsubmit");
 const headerright = document.querySelector(".headerright");
 const listingForm = document.querySelector(".listing-form");
 const BACKEND_URL = "http://localhost:3000";
+
 let signingUp = false
 let loggingIn = false
-
 let current_user_id
 let newListingButton = document.querySelector(".new-listing-button")
 
-
+// CONTROLLER ACTIONS MANIPULATING THE DOM //
 function clearPage() {
   loginForm.style.display = "none"
   signupForm.style.display = "none"
@@ -25,6 +26,23 @@ function clearPage() {
   users.style.display = "none"
 }
 
+function showMainPage(user) {
+  clearPage()
+  const listingsClass = new Listings
+  const usersClass = new Users
+  //Hide Login + Signup Buttons
+  login.style.display = "none"
+  signup.style.display = "none"
+  //Show Main Menu
+  logout.style.display = "block"
+  listings_button.style.display = "block"
+  users.style.display = "block"
+  account.style.display = "block"
+  headerright.innerHTML += `<em> Welcome ${user.name}!</em>`
+  current_user_id = user.id
+}
+
+// APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
   constructor() {
     this.listeners()
@@ -66,77 +84,3 @@ class App {
     })
   }
 }
-/*
-function logIn() {
-  let userInputForUsername = document.querySelector("#username").value;
-  let userInputForPassword = document.querySelector("#password").value;
-
-  let formData = {
-      username: userInputForUsername,
-      password: userInputForPassword
-    }
-
-    let configObj = {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(formData)
-      }
-
-    fetch(`${BACKEND_URL}/login`, configObj)
-    .then(user => user.json())
-    .then(user => showMainPage(user))
-}
-*/
-
-function showMainPage(user) {
-  clearPage()
-  const listingsClass = new Listings
-  const usersClass = new Users
-  //Hide Login + Signup Buttons
-  login.style.display = "none"
-  signup.style.display = "none"
-  //Show Main Menu
-  logout.style.display = "block"
-  listings_button.style.display = "block"
-  users.style.display = "block"
-  account.style.display = "block"
-  headerright.innerHTML += `<em> Welcome ${user.name}!</em>`
-  current_user_id = user.id
-}
-/*
-function signUp() {
-  let userInputForName = document.querySelector("#name").value;
-  let userInputForNewUsername = document.querySelector("#signup_username").value;
-  let userInputForPassword = document.querySelector("#signup_password").value;
-  let userInputForPasswordConfirmation = document.querySelector("#password_confirm").value;
-  let userInputForEmail = document.querySelector("#email").value;
-
-  let formData = {
-    user: {
-      name: userInputForName,
-      password: userInputForPassword,
-      password_confirmation: userInputForPasswordConfirmation,
-      username: userInputForNewUsername,
-      email: userInputForEmail
-    }
-  }
-
-  let configObj = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(formData)
-  }
-
-
-  fetch(`${BACKEND_URL}/signup`, configObj)
-  .then(user => user.json())
-  .then(user => showMainPage(user))
-
-}
-*/

@@ -2,14 +2,14 @@ class SessionFetcher {
   constructor() {
     if (loggingIn == true) {
       this.logIn();
-    }
+    };
     else if (signingUp == true) {
       this.signUp();
-    }
+    };
     else {
       console.log("well....?")
-    }
-  }
+    };
+  };
 
   logIn() {
     let userInputForUsername = document.querySelector("#username").value;
@@ -18,7 +18,7 @@ class SessionFetcher {
     let formData = {
         username: userInputForUsername,
         password: userInputForPassword
-      }
+      };
 
       let configObj = {
         method: "POST",
@@ -27,12 +27,12 @@ class SessionFetcher {
             "Accept": "application/json"
           },
           body: JSON.stringify(formData)
-        }
+        };
 
       fetch(`${BACKEND_URL}/login`, configObj)
       .then(user => user.json())
       .then(user => showMainPage(user))
-  }
+  };
 
   signUp() {
     console.log("we are on signup")
@@ -49,8 +49,8 @@ class SessionFetcher {
         password_confirmation: userInputForPasswordConfirmation,
         username: userInputForNewUsername,
         email: userInputForEmail
-      }
-    }
+      };
+    };
 
     let configObj = {
       method: "POST",
@@ -59,11 +59,11 @@ class SessionFetcher {
         "Accept": "application/json"
       },
       body: JSON.stringify(formData)
-    }
+    };
 
 
     fetch(`${BACKEND_URL}/signup`, configObj)
-    .then(user => user.json())
-    .then(user => showMainPage(user))
-  }
+    .then(user => user.json());
+    .then(user => showMainPage(user));
+  };
 }
