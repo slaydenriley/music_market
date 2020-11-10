@@ -45,4 +45,14 @@ class ListingFetcher {
       .then(listing => listing.json())
       .then(listing => Listings.renderSingleListing(listing))
   };
+
+// EDIT LISTING //
+  static editListing() {
+    console.log("will be edited")
+  };
+
+// DELETE LISTING //
+  static deleteListing() {
+    console.log("will be deleted")
+  }
 };

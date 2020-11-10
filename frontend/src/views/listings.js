@@ -48,8 +48,8 @@ class Listings {
         <h3>${listing.title}</h3>
         <h4>${listing.price}</h4>
         <p>${listing.description}</p></div>
-        <button class="edit-listing">Edit Listing</button>
-        <button class="delete-listing">Delete Listing</button>`
+        <button class="edit-listing" id="${listing.id}">Edit Listing</button>
+        <button class="delete-listing" id="${listing.id}">Delete Listing</button>`
     }
     else {
       newHtml = `
@@ -60,6 +60,11 @@ class Listings {
 
     singleListing.style.display = "block";
     singleListing.innerHTML += newHtml;
+
+    if (current_user_id === listing.user_id) {
+      Listings.editButton();
+      Listings.deleteButton();
+    };
   };
 
 // ADDS EVENT LISTENER TO ALL LISTING CARDS SO THEY CAN BE CLICKED //
@@ -71,4 +76,19 @@ class Listings {
       });
     });
   };
+
+// ADDS EVENT LISTERS TO LISTING EDIT AND DELETE BUTTONS //
+  static editButton() {
+    let button = document.querySelector(".edit-listing")
+    button.addEventListener("click", function() {
+      ListingFetcher.editListing(`${button.id}`)
+    })
+  }
+
+  static deleteButton() {
+    let button = document.querySelector(".delete-listing")
+    button.addEventListener("click", function() {
+      ListingFetcher.deleteListing(`${button.id}`)
+    })
+  }
 };
