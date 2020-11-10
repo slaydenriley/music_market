@@ -64,7 +64,7 @@ button {
   color: white;
 }
 
-.login-form, .signup-form, .listing-form {
+.login-form, .signup-form, .listing-form, .listing-edit-form {
   text-align: center;
   background: white;
   padding: 20px;

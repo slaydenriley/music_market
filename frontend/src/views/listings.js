@@ -62,7 +62,7 @@ class Listings {
     singleListing.innerHTML += newHtml;
 
     if (current_user_id === listing.user_id) {
-      Listings.editButton();
+      Listings.editButton(listing);
       Listings.deleteButton();
     };
   };
@@ -78,10 +78,23 @@ class Listings {
   };
 
 // ADDS EVENT LISTERS TO LISTING EDIT AND DELETE BUTTONS //
-  static editButton() {
+  static editButton(listing) {
     let button = document.querySelector(".edit-listing")
+
     button.addEventListener("click", function() {
+      let title = document.querySelector("#edit_listing_title");
+      let price = document.querySelector("#edit_listing_price");
+      let description = document.querySelector("#edit_listing_description");
+
+      title.value = `${listing.title}`
+      price.value = `${listing.price}`
+      description.value = `${listing.description}`
+
+      App.clearMain();
+      editListingForm.style.display = "block"
+
       ListingFetcher.editListing(`${button.id}`)
+
     })
   }
 

@@ -9,6 +9,7 @@ const loginsubmit = document.querySelector(".loginsubmit");
 const headerright = document.querySelector(".headerright");
 const listingForm = document.querySelector(".listing-form");
 const newListingSubmit = document.querySelector(".new_listing_submit")
+const editListingForm = document.querySelector(".listing-edit-form")
 const BACKEND_URL = "http://localhost:3000";
 
 // THESE VARIABLES WILL CHANGE //
@@ -79,6 +80,7 @@ class App {
     users.style.display = "none";
     singleListing.style.display = "none";
     singleUser.style.display = "none";
+    editListingForm.style.display = "none";
   }
 
   static clearMain() {
