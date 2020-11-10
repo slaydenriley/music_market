@@ -7,6 +7,8 @@ const loginsubmit = document.querySelector(".loginsubmit");
 const headerright = document.querySelector(".headerright");
 const listingForm = document.querySelector(".listing-form");
 const BACKEND_URL = "http://localhost:3000";
+let signingUp = false
+let loggingIn = false
 
 let current_user_id
 let newListingButton = document.querySelector(".new-listing-button")
@@ -41,12 +43,15 @@ class App {
     })
 
     signup_submit.addEventListener('click', (e) => {
-      signUp(e)
+      clearPage()
+      signingUp = true
+      let signUp = new SessionFetcher
     })
 
     loginsubmit.addEventListener('click', (e) => {
       clearPage()
-      logIn(e)
+      loggingIn = true
+      let logIn = new SessionFetcher
     })
 
     logout.addEventListener('click', function logout() {
@@ -61,7 +66,7 @@ class App {
     })
   }
 }
-
+/*
 function logIn() {
   let userInputForUsername = document.querySelector("#username").value;
   let userInputForPassword = document.querySelector("#password").value;
@@ -84,6 +89,7 @@ function logIn() {
     .then(user => user.json())
     .then(user => showMainPage(user))
 }
+*/
 
 function showMainPage(user) {
   clearPage()
@@ -100,7 +106,7 @@ function showMainPage(user) {
   headerright.innerHTML += `<em> Welcome ${user.name}!</em>`
   current_user_id = user.id
 }
-
+/*
 function signUp() {
   let userInputForName = document.querySelector("#name").value;
   let userInputForNewUsername = document.querySelector("#signup_username").value;
@@ -133,3 +139,4 @@ function signUp() {
   .then(user => showMainPage(user))
 
 }
+*/
