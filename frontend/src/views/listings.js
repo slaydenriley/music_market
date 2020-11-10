@@ -42,9 +42,24 @@ class Listings {
 
   static renderSingleListing(listing) {
     App.clearMain()
+    let newHtml;
+    if (current_user_id === listing.user_id) {
+      newHtml = `
+        <h3>${listing.title}</h3>
+        <h4>${listing.price}</h4>
+        <p>${listing.description}</p></div>
+        <button class="edit-listing">Edit Listing</button>
+        <button class="delete-listing">Delete Listing</button>`
+    }
+    else {
+      newHtml = `
+        <h3>${listing.title}</h3>
+        <h4>${listing.price}</h4>
+        <p>${listing.description}</p></div>`
+    }
+
     singleListing.style.display = "block";
-    singleListing.innerHTML += `<h3>${listing.title}</h3> <h4>${listing.price}</h4>
-                                <p>${listing.description}</p></div>`;
+    singleListing.innerHTML += newHtml;
   };
 
 // ADDS EVENT LISTENER TO ALL LISTING CARDS SO THEY CAN BE CLICKED //
