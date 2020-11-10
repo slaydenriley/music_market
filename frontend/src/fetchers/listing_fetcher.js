@@ -1,7 +1,7 @@
 // LISTING FETCHER COMMUNICATES WITH RAILS API FOR LISTINGS //
 class ListingFetcher {
   constructor() {
-    this.fetchListings;
+    this.fetchListings()
   };
 
 

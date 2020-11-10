@@ -97,6 +97,7 @@ class App {
 
   static showMainPage(user) {
     App.clearPage();
+
     const listingsClass = new Listings;
     const usersClass = new Users;
 
