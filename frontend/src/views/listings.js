@@ -12,7 +12,7 @@ class Listings {
       Listings.renderListingForm();
     });
     newListingSubmit.addEventListener("click", function() {
-      console.log("clicked")
+      let postListing = ListingFetcher.post();
     });
   };
 

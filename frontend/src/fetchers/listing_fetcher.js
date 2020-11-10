@@ -8,4 +8,8 @@ class ListingFetcher {
     .then(list => list.json())
     .then(list => Listings.renderList(list))
   }
+
+  static post() {
+    console.log("starting to post!")
+  }
 }
