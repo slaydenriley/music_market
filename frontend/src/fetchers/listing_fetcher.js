@@ -32,7 +32,7 @@ class ListingFetcher {
         user_id: current_user_id
       };
 
-      let configObj = {
+     let configObj = {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -48,7 +48,29 @@ class ListingFetcher {
 
 // EDIT LISTING //
   static editListing() {
-    console.log("will be edited")
+    let title = document.querySelector("#edit_listing_title");
+    let price = document.querySelector("#edit_listing_price");
+    let description = document.querySelector("#edit_listing_description");
+
+    let formData = {
+      title: title,
+      price: price,
+      description: description
+    };
+
+    let configObj = {
+       method: "PATCH",
+       headers: {
+           "Content-Type": "application/json",
+           "Accept": "application/json"
+         },
+         body: JSON.stringify(formData)
+       };
+
+      fetch(`${BACKEND_URL}/listings`, configObj)
+      .then(listing => listing.json())
+      .then(listing => Listings.renderSingleListing(listing))
+
   };
 
 // DELETE LISTING //

@@ -92,9 +92,11 @@ class Listings {
 
       App.clearMain();
       editListingForm.style.display = "block"
+    })
 
-      ListingFetcher.editListing(`${button.id}`)
-
+    let button_submit = document.querySelector(".edit-listing-submit")
+    button_submit.addEventListener("click", function() {
+      let editListing = ListingFetcher.editListing(`${button.id}`)
     })
   }
 
