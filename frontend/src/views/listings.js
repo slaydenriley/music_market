@@ -80,21 +80,23 @@ class Listings {
 // ADDS EVENT LISTERS TO LISTING EDIT AND DELETE BUTTONS //
   static editButton(listing) {
     let button = document.querySelector(".edit-listing")
+    let button_submit = document.querySelector(".edit_listing_submit")
 
     button.addEventListener("click", function() {
       let title = document.querySelector("#edit_listing_title");
       let price = document.querySelector("#edit_listing_price");
       let description = document.querySelector("#edit_listing_description");
+      let id = document.querySelector("#listing_id")
 
       title.value = `${listing.title}`
       price.value = `${listing.price}`
       description.value = `${listing.description}`
+      id.value = `${listing.id}`
 
       App.clearMain();
       editListingForm.style.display = "block"
     })
 
-    let button_submit = document.querySelector(".edit-listing-submit")
     button_submit.addEventListener("click", function() {
       let editListing = ListingFetcher.editListing(`${button.id}`)
     })

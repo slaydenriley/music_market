@@ -48,15 +48,20 @@ class ListingFetcher {
 
 // EDIT LISTING //
   static editListing() {
-    let title = document.querySelector("#edit_listing_title");
-    let price = document.querySelector("#edit_listing_price");
-    let description = document.querySelector("#edit_listing_description");
+    let title = document.querySelector("#edit_listing_title").value;
+    let price = document.querySelector("#edit_listing_price").value;
+    let description = document.querySelector("#edit_listing_description").value;
+    let id = document.querySelector("#listing_id").value;
 
     let formData = {
       title: title,
       price: price,
-      description: description
+      description: description,
+      user_id: current_user_id,
+      id: id,
     };
+
+    console.log(formData)
 
     let configObj = {
        method: "PATCH",

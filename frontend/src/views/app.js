@@ -90,6 +90,7 @@ class App {
     listingForm.style.display = "none";
     singleListing.style.display = "none";
     singleUser.style.display = "none";
+    editListingForm.style.display = "none";
 
     allListings.innerHTML = "";
     allUsers.innerHTML = "";
