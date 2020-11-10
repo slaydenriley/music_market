@@ -3,6 +3,7 @@ const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const allUsers = document.querySelector(".all-users");
 const singleUser = document.querySelector(".single-user");
+const singleListing = document.querySelector(".single-listing");
 const allListings = document.querySelector(".all-listings-cards");
 const loginsubmit = document.querySelector(".loginsubmit");
 const headerright = document.querySelector(".headerright");
@@ -18,8 +19,14 @@ let current_user_id;
 // APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
   constructor() {
-    this.listeners();
-    App.clearPage();
+    if (localStorage.length === 0) {
+      this.listeners();
+      App.clearPage();
+    }
+    else {
+      App.clearPage();
+      App.showMainPage()
+    }
   };
 
   listeners() {

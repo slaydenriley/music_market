@@ -5,21 +5,22 @@ class ListingFetcher {
 
   fetchListings() {
     fetch(`${BACKEND_URL}/listings`)
-    .then(list => list.json())
-    .then(list => Listings.renderList(list))
+    .then(listings => listings.json())
+    .then(listings => Listings.renderList(listings))
   }
 
   static post() {
     console.log("starting to post!")
 
-    let userInputForTitle = document.querySelector("#title").value;
-    let userInputForPrice = document.querySelector("#price").value;
-    let userInputForDescription = document.querySelector("#description").value;
+    let userInputForTitle = document.querySelector("#listing_title").value;
+    let userInputForPrice = document.querySelector("#listing_price").value;
+    let userInputForDescription = document.querySelector("#listing_description").value;
 
     let formData = {
         title: userInputForTitle,
         price: userInputForPrice,
-        description: userInputForPasswordConfirmation
+        description: userInputForDescription,
+        user_id: current_user_id
       };
 
       let configObj = {
@@ -33,6 +34,6 @@ class ListingFetcher {
 
       fetch(`${BACKEND_URL}/listings`, configObj)
       .then(listing => listing.json())
-      .then(listing => console.log(listing))
+      .then(listing => Listings.renderSingleListing(listing))
   }
 }

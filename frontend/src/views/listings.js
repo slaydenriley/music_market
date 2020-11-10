@@ -20,11 +20,15 @@ class Listings {
     document.querySelector(".all-listings-cards").style.display = "block";
 
     list.forEach(listing => {
-      allListings.innerHTML += `<div class="card"><h3>${listing.title}</h3> <h4>${listing.price}</h4></div>`;
+      allListings.innerHTML += `<div class="card"><h3>${listing.title}</h3> <h4>${listing.price}</h4> <p>${listing.description}</p></div>`;
     });
   };
 
   static renderListingForm() {
     listingForm.style.display = "block";
   };
+
+  static renderSingleListing(listing) {
+    singleListing.innerHTML += `<div class="card"><h3>${listing.title}</h3> <h4>${listing.price}</h4> <p>${listing.description}</p></div>`;
+  }
 };
