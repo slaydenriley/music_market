@@ -10,11 +10,22 @@ class ListingsController < ApplicationController
   end
 
   def create
-    listing = Listing.create(title, price, description)
-    if save
+    listing = Listing.new(listing_params)
+    if listing.save
       render json: ListingSerializer.new(listing).to_serialized_json
     else
       render text: "Nope!"
     end
+  end
+
+  private
+  
+  def listing_params
+    params.require(:listing).permit(
+      :title,
+      :price,
+      :description,
+      :user_id
+    )
   end
 end
