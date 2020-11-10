@@ -18,8 +18,18 @@ class ListingsController < ApplicationController
     end
   end
 
+  def edit
+    listing = Listing.find_by(id: params[:id])
+    listing.update(listing_params)
+    if listing.save
+      render json: ListingSerializer.new(listing).to_serialized_json
+    else
+      render text: "Nope!"
+    end
+  end
+
   private
-  
+
   def listing_params
     params.require(:listing).permit(
       :title,

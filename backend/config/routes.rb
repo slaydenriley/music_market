@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   post '/listings', to: 'listings#create'
+  patch '/listings', to: 'listings#edit'
 
 end
