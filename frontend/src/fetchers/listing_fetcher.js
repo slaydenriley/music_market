@@ -9,6 +9,12 @@ class ListingFetcher {
     .then(listings => Listings.renderList(listings))
   }
 
+  static fetchSingleListing(id) {
+    fetch(`${BACKEND_URL}/listings/${id}`)
+    .then(listing => listing.json())
+    .then(listing => Listings.renderSingleListing(listing))
+  }
+
   static post() {
     console.log("starting to post!")
 

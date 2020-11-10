@@ -1,4 +1,4 @@
-// HTML ELEMENTS ASSIGNED TO VARIABLES //
+// HTML ELEMENTS ASSIGNED TO VARIABLES, WON'T CHANGE //
 const loginForm = document.querySelector(".login-form");
 const signupForm = document.querySelector(".signup-form");
 const allUsers = document.querySelector(".all-users");
@@ -11,10 +11,11 @@ const listingForm = document.querySelector(".listing-form");
 const newListingSubmit = document.querySelector(".new_listing_submit")
 const BACKEND_URL = "http://localhost:3000";
 
+// THESE VARIABLES WILL CHANGE //
 let signingUp = false;
 let loggingIn = false;
 let current_user_id;
-//const newListingButton = document.querySelector("new-listing-button");
+let active_button;
 
 // APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
@@ -81,6 +82,11 @@ class App {
     signupForm.style.display = "none";
     allListings.style.display = "none";
     listingForm.style.display = "none";
+
+    allListings.innerHTML = "";
+    allUsers.innerHTML = "";
+    singleListing.innerHTML = "";
+    singleUser.innerHTML = "";
   }
 
   static showMainPage(user) {
