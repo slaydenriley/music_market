@@ -7,12 +7,13 @@ const allListings = document.querySelector(".all-listings-cards");
 const loginsubmit = document.querySelector(".loginsubmit");
 const headerright = document.querySelector(".headerright");
 const listingForm = document.querySelector(".listing-form");
+const newListingSubmit = document.querySelector(".new_listing_submit")
 const BACKEND_URL = "http://localhost:3000";
 
 let signingUp = false;
 let loggingIn = false;
 let current_user_id;
-let newListingButton = document.getElementById("new-listing-button");
+//const newListingButton = document.querySelector("new-listing-button");
 
 // APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
@@ -64,6 +65,7 @@ class App {
     listingForm.style.display = "none";
     account.style.display = "none";
     listings_button.style.display = "none";
+    new_listing_button.style.display = "none";
     users.style.display = "none";
   }
 
@@ -86,6 +88,7 @@ class App {
     //Show Main Menu
     logout.style.display = "block";
     listings_button.style.display = "block";
+    new_listing_button.style.display = "block";
     users.style.display = "block";
     account.style.display = "block";
     headerright.innerHTML += `<em> Welcome ${user.name}!</em>`;
