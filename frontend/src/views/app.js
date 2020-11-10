@@ -75,6 +75,8 @@ class App {
     listings_button.style.display = "none";
     new_listing_button.style.display = "none";
     users.style.display = "none";
+    singleListing.style.display = "none";
+    singleUser.style.display = "none";
   }
 
   static clearMain() {
@@ -82,6 +84,8 @@ class App {
     signupForm.style.display = "none";
     allListings.style.display = "none";
     listingForm.style.display = "none";
+    singleListing.style.display = "none";
+    singleUser.style.display = "none";
 
     allListings.innerHTML = "";
     allUsers.innerHTML = "";

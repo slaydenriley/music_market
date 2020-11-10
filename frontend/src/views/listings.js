@@ -24,8 +24,11 @@ class Listings {
     allListings.style.display = "block";
 
     list.forEach(listing => {
-      allListings.innerHTML += `<button class="card" id="${listing.id}"><h3>${listing.title}</h3> <h4>${listing.price}</h4> <p>${listing.description}</p></button>`;
+      allListings.innerHTML += `<button class="card" id="${listing.id}">
+                                <h3>${listing.title}</h3> <h4>${listing.price}</h4>
+                                <p>${listing.description}</p></button>`;
     });
+
     Listings.cardButtons()
   };
 
@@ -36,8 +39,10 @@ class Listings {
 
   static renderSingleListing(listing) {
     App.clearMain()
-    singleListing.innerHTML += `<div class="card" id="${listing.id}"><h3>${listing.title}</h3> <h4>${listing.price}</h4> <p>${listing.description}</p></div>`;
-  }
+    singleListing.style.display = "block";
+    singleListing.innerHTML += `<h3>${listing.title}</h3> <h4>${listing.price}</h4>
+                                <p>${listing.description}</p></div>`;
+  };
 
   static cardButtons() {
     let card = document.querySelectorAll(".card")
