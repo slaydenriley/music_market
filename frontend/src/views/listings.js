@@ -7,7 +7,7 @@ class Listings {
 
   listeners() {
     listings_button.addEventListener("click", function() {
-      clearMain()
+      App.clearMain()
       let fetchListings = new ListingFetcher
     })
     newListingButton.addEventListener("click", function() {

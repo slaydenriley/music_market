@@ -14,69 +14,32 @@ let loggingIn = false;
 let current_user_id;
 let newListingButton = document.getElementById("new-listing-button");
 
-// CONTROLLER ACTIONS MANIPULATING THE DOM //
-function clearPage() {
-  loginForm.style.display = "none";
-  signupForm.style.display = "none";
-  logout.style.display = "none";
-  allListings.style.display = "none";
-  listingForm.style.display = "none";
-  account.style.display = "none";
-  listings_button.style.display = "none";
-  users.style.display = "none";
-}
-
-function clearMain() {
-  loginForm.style.display = "none";
-  signupForm.style.display = "none";
-  allListings.style.display = "none";
-  listingForm.style.display = "none";
-}
-
-function showMainPage(user) {
-  clearPage();
-  const listingsClass = new Listings;
-  const usersClass = new Users;
-
-  //Hide Login + Signup Buttons
-  login.style.display = "none";
-  signup.style.display = "none";
-
-  //Show Main Menu
-  logout.style.display = "block";
-  listings_button.style.display = "block";
-  users.style.display = "block";
-  account.style.display = "block";
-  headerright.innerHTML += `<em> Welcome ${user.name}!</em>`;
-  current_user_id = user.id;
-}
-
 // APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
   constructor() {
     this.listeners();
-    clearPage();
+    App.clearPage();
   };
 
   listeners() {
     login.addEventListener('click', function showLogin() {
-      clearPage();
+      App.clearPage();
       loginForm.style.display = "block";
     });
 
     signup.addEventListener('click', function showSignup() {
-      clearPage();
+      App.clearPage();
       signupForm.style.display = "block";
     });
 
     signup_submit.addEventListener('click', (e) => {
-      clearPage();
+      App.clearPage();
       signingUp = true;
       let signUp = new SessionFetcher;
     });
 
     loginsubmit.addEventListener('click', (e) => {
-      clearPage();
+      App.clearPage();
       loggingIn = true;
       let logIn = new SessionFetcher;
     });
@@ -92,4 +55,40 @@ class App {
       };
     });
   };
+
+  static clearPage() {
+    loginForm.style.display = "none";
+    signupForm.style.display = "none";
+    logout.style.display = "none";
+    allListings.style.display = "none";
+    listingForm.style.display = "none";
+    account.style.display = "none";
+    listings_button.style.display = "none";
+    users.style.display = "none";
+  }
+
+  static clearMain() {
+    loginForm.style.display = "none";
+    signupForm.style.display = "none";
+    allListings.style.display = "none";
+    listingForm.style.display = "none";
+  }
+
+  static showMainPage(user) {
+    App.clearPage();
+    const listingsClass = new Listings;
+    const usersClass = new Users;
+
+    //Hide Login + Signup Buttons
+    login.style.display = "none";
+    signup.style.display = "none";
+
+    //Show Main Menu
+    logout.style.display = "block";
+    listings_button.style.display = "block";
+    users.style.display = "block";
+    account.style.display = "block";
+    headerright.innerHTML += `<em> Welcome ${user.name}!</em>`;
+    current_user_id = user.id;
+  }
 };

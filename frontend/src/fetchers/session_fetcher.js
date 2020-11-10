@@ -31,7 +31,7 @@ class SessionFetcher {
 
       fetch(`${BACKEND_URL}/login`, configObj)
       .then(user => user.json())
-      .then(user => showMainPage(user))
+      .then(user => App.showMainPage(user))
   };
 
   signUp() {
@@ -64,6 +64,6 @@ class SessionFetcher {
 
     fetch(`${BACKEND_URL}/signup`, configObj)
     .then(user => user.json())
-    .then(user => showMainPage(user))
+    .then(user => App.showMainPage(user))
   };
 }
