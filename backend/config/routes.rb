@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   patch '/listings', to: 'listings#edit'
   delete '/listings', to: 'listings#destroy'
 
+  patch '/users', to: 'users#edit'
+
 end

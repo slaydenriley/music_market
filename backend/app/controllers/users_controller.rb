@@ -15,7 +15,17 @@ class UsersController < ApplicationController
       render json: UserSerializer.new(user).to_serialized_json
       session[:user_id] = user.id
     else
-  
+      render text: "error!"
+    end
+  end
+
+  def edit
+    user = User.find_by(id: params[:id])
+    user.update(user_params)
+    if user.save
+      render json: UserSerializer.new(user).to_serialized_json
+    else
+      render text: "error!"
     end
   end
 
@@ -27,7 +37,9 @@ class UsersController < ApplicationController
       :email,
       :username,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :description,
+      :id
     )
   end
 end
