@@ -1,4 +1,4 @@
-// LISTING CLASS CALLED WHEN LOGGED IN FROM APP CLASS //
+// LISTING INSTANCE CREATED WHEN LOGGED IN FROM APP CLASS //
 class Listings {
   constructor() {
     this.listeners();
@@ -28,20 +28,31 @@ class Listings {
         <h3>${listing.title}</h3> <h4>${listing.price}</h4>
         <p>${listing.description}</p></button>`;
 
-      allListings.innerHTML += newHtml
+      allListings.innerHTML += newHtml;
     });
 
-    Listings.cardButtons()
+    Listings.cardButtons();
   };
 
-// RENDERS THE NEW LISTING FORM //
+// RENDERS THE NEW LISTING FORM AND ENSURES IT'S BLANK //
   static renderListingForm() {
     App.clearMain();
+    clearForm();
     listingForm.style.display = "block";
+
+    function clearForm() {
+      let title = document.querySelector("#listing_title");
+      let price = document.querySelector("#listing_price");
+      let description = document.querySelector("#listing_description");
+
+      title.value = "";
+      price.value = "";
+      description.value = "";
+    };
   };
 
   static renderSingleListing(listing) {
-    App.clearMain()
+    App.clearMain();
     let newHtml;
     if (current_user_id === listing.user_id) {
       newHtml = `
@@ -56,7 +67,7 @@ class Listings {
         <h3>${listing.title}</h3>
         <h4>${listing.price}</h4>
         <p>${listing.description}</p></div>`
-    }
+    };
 
     singleListing.style.display = "block";
     singleListing.innerHTML += newHtml;
@@ -86,26 +97,26 @@ class Listings {
       let title = document.querySelector("#edit_listing_title");
       let price = document.querySelector("#edit_listing_price");
       let description = document.querySelector("#edit_listing_description");
-      let id = document.querySelector("#listing_id")
+      let id = document.querySelector("#listing_id");
 
-      title.value = `${listing.title}`
-      price.value = `${listing.price}`
-      description.value = `${listing.description}`
-      id.value = `${listing.id}`
+      title.value = `${listing.title}`;
+      price.value = `${listing.price}`;
+      description.value = `${listing.description}`;
+      id.value = `${listing.id}`;
 
       App.clearMain();
-      editListingForm.style.display = "block"
-    })
+      editListingForm.style.display = "block";
+    });
 
     button_submit.addEventListener("click", function() {
-      let editListing = ListingFetcher.editListing(`${button.id}`)
-    })
-  }
+      let editListing = ListingFetcher.editListing(`${button.id}`);
+    });
+  };
 
   static deleteButton() {
-    let button = document.querySelector(".delete-listing")
+    let button = document.querySelector(".delete-listing");
     button.addEventListener("click", function() {
-      ListingFetcher.deleteListing(`${button.id}`)
-    })
-  }
+      ListingFetcher.deleteListing(`${button.id}`);
+    });
+  };
 };

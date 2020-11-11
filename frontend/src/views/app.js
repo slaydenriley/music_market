@@ -8,7 +8,8 @@ const allListings = document.querySelector(".all-listings-cards");
 const loginsubmit = document.querySelector(".loginsubmit");
 const headerright = document.querySelector(".headerright");
 const listingForm = document.querySelector(".listing-form");
-const newListingSubmit = document.querySelector(".new_listing_submit")
+const newListingSubmit = document.querySelector(".new_listing_submit");
+const userEditForm = document.querySelector(".user-edit-form")
 const editListingForm = document.querySelector(".listing-edit-form")
 const BACKEND_URL = "http://localhost:3000";
 
@@ -81,6 +82,7 @@ class App {
     singleListing.style.display = "none";
     singleUser.style.display = "none";
     editListingForm.style.display = "none";
+    userEditForm.style.display = "none"
   }
 
   static clearMain() {
@@ -91,6 +93,7 @@ class App {
     singleListing.style.display = "none";
     singleUser.style.display = "none";
     editListingForm.style.display = "none";
+    userEditForm.style.display = "none"
 
     allListings.innerHTML = "";
     allUsers.innerHTML = "";
