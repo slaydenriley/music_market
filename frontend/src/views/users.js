@@ -35,12 +35,14 @@ class Users {
 
 // RENDERS SINGLE USER //
   static renderSingleUser(user) {
+    console.log(user)
     App.clearMain()
     singleUser.style.display = "block";
     let newHtml = `
       <h3>${user.name}</h3>
       <h4>${user.username}</h4>
-      <p>${user.email}</p>`
+      <p>${user.email}</p>
+      <p>${user.listings}</p>`
 
     // Adds an edit button to account if user is logged in //
     if (current_user_id === user.id) {

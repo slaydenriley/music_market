@@ -46,12 +46,14 @@ class App {
 
     signup_submit.addEventListener('click', (e) => {
       App.clearPage();
+      loggingIn = false;
       signingUp = true;
       let signUp = new SessionFetcher;
     });
 
     loginsubmit.addEventListener('click', (e) => {
       App.clearPage();
+      signingUp = false;
       loggingIn = true;
       let logIn = new SessionFetcher;
     });

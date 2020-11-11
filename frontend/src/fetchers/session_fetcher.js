@@ -38,7 +38,6 @@ class SessionFetcher {
 
 // SIGNUP POST REQUEST //
   signUp() {
-    console.log("we are on signup")
     let userInputForName = document.querySelector("#name").value;
     let userInputForNewUsername = document.querySelector("#signup_username").value;
     let userInputForPassword = document.querySelector("#signup_password").value;
