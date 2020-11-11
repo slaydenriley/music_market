@@ -4,6 +4,6 @@ class UserSerializer
   end
 
   def to_serialized_json
-    @user.to_json(:only => [:name, :username, :password, :password_confirmation, :email, :description, :id, :listings])
+    @user.to_json(:only => [:name, :username, :password, :password_confirmation, :email, :description, :id, :listings], include: [:listings])
   end
 end
