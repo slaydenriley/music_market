@@ -1,19 +1,18 @@
 // USER INSTANCE CREATED WHEN LOGGED IN FROM APP CLASS //
 class Users {
   constructor() {
-    this.listeners()
-  }
+    this.listeners();
+  };
 
 // LISTENS FOR BUTTON CLICKS //
   listeners() {
     users.addEventListener("click", function() {
       let users = new UserFetcher
-    })
-
+    });
     account.addEventListener("click", function() {
       UserFetcher.fetchSingleUser(current_user_id)
-    })
-  }
+    });
+  };
 
 // RENDERS ALL USERS //
   static renderUsers(users) {
@@ -30,19 +29,30 @@ class Users {
       allUsers.innerHTML += newHtml
     });
 
-    Users.userCards()
+    Users.userCards();
   };
 
 // RENDERS SINGLE USER //
   static renderSingleUser(user) {
-    console.log(user)
-    App.clearMain()
+    App.clearMain();
     singleUser.style.display = "block";
+
+    // This function takes a user's listings and iterates through them //
+    function renderListings() {
+      let listings = user.listings
+      listings.forEach(listing => {
+        let html = `<p><a href="#" class="user_listings" id=${listing.id}>${listing.title}</a></p>`
+        singleUser.innerHTML += html
+      });
+      Users.userListingsAccount()
+    };
+
+    // General HTML to be used for all user accounts //
     let newHtml = `
       <h3>${user.name}</h3>
-      <h4>${user.username}</h4>
-      <p>${user.email}</p>
-      <p>${user.listings}</p>`
+      <p><em>Username: ${user.username}</em></p>
+      <p><em>Email: ${user.email}</em></p>
+      <h4>${user.name}'s Listings </br>`
 
     // Adds an edit button to account if user is logged in //
     if (current_user_id === user.id) {
@@ -51,10 +61,8 @@ class Users {
     else {
       singleUser.innerHTML += newHtml
     };
-
-    if (current_user_id === user.id) {
-      Users.editUserButton(user);
-    };
+    renderListings();
+    Users.editUserButton(user);
   };
 
 // MAKES USER ACCOUNTS CLICKABLE //
@@ -67,6 +75,15 @@ class Users {
     });
   };
 
+  static userListingsAccount() {
+    let listings = document.querySelectorAll(".user_listings")
+    listings.forEach(listing => {
+      listing.addEventListener("click", function () {
+        ListingFetcher.fetchSingleListing(`${listing.id}`)
+      })
+    })
+  }
+
   static editUserButton(user) {
     let button = document.querySelector(".edit_account_button")
     //let button_submit = document.querySelector(".edit_listing_submit")
@@ -78,7 +95,6 @@ class Users {
       let email = document.querySelector("#edit_email")
       let password = document.querySelector("#edit_password")
       let password_confirmation = document.querySelector("#edit_password_confirm")
-      //let id = document.querySelector("#user_id");
 
       name.value = `${user.name}`;
       username.value = `${user.username}`;
@@ -90,7 +106,7 @@ class Users {
     });
 
     edit_submit.addEventListener("click", function() {
-      let editListing = ListingFetcher.editListing(`${button.id}`);
+      let editUser = UserFetcher.editUser(`${user.id}`);
     });
   };
 };
