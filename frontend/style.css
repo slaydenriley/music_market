@@ -1,11 +1,9 @@
 body {
-  background: grey;
+  background: white;
   margin: 0;
-}
-
-.headerright {
-  color: white;
-
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 input {
@@ -19,21 +17,14 @@ button {
 }
 
 .header {
-  background-color: black;
   margin: 0;
   padding: 20px;
   margin-bottom: 20px;
+  border-bottom: 1px solid black;
 }
 
 #title {
-  color: white;
   margin: 0;
-}
-
-
-.main-menu {
-  text-align: left;
-  background-color: white;
 }
 
 .row1 {
@@ -53,35 +44,29 @@ button {
   display: block; /* Make the links appear below each other */
   padding: 12px; /* Add some padding */
   text-decoration: none; /* Remove underline from links */
+  margin-bottom: 3px;
+  border: 1px solid black;
 }
 
 .main-menu button:hover {
   background-color: #ccc; /* Dark grey background on mouse-over */
 }
 
-.main-menu button.active {
-  background-color: #4CAF50; /* Add a green color to the "active/current" link */
-  color: white;
-}
-
-.login-form, .signup-form, .listing-form, .listing-edit-form, .user-edit-form {
+.login-form, .signup-form, .listing-form, .listing-edit-form, .user-edit-form, .single-listing, .single-user {
   text-align: center;
-  background: white;
-  padding: 20px;
-  width: 300px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding-bottom: 20px;
+  width: 500px;
   border-radius: 10px;
   margin-left: 40px;
+  float: left;
 }
 
 .homescreen {
   margin: 0 auto;
 }
-/*
-#main-menu-text {
-  color: white;
-  text-align: center;
-}
-*/
+
 .card, .user_card {
   text-align: center;
   width: 200px;
@@ -90,18 +75,20 @@ button {
   margin-bottom: 40px;
   padding: 10px;
   float: left;
+  border: 1px solid black;
 }
-
+/*
 .single-listing, .single-user {
   width: 500px;
   font-size: 24px;
   text-align: center;
   background: white;
-  margin-left: 15%;
-  padding: 20px;
+  margin-left: 40px;
+  padding: 10px;
+  border: 1px solid black;
+  float: left;
 }
-
+*/
 .active_button {
-  background-color: red!important;
-  color: white!important;
+  background-color: lightgreen!important;
 }
