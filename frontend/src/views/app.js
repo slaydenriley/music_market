@@ -18,6 +18,7 @@ let signingUp = false;
 let loggingIn = false;
 let current_user_id;
 let active_button;
+let active_button_node;
 
 // APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
@@ -124,14 +125,9 @@ class App {
   }
 
   static removeActiveButton() {
-    let node = document.querySelector(".active_button")
-    if (node === undefined) {
-      console.log("here")
-    }
-    else {
-      node.forEach(button => {
-        button.classList.remove("active_button")
-      })
-    }
-  }
+    if (document.querySelector(".active_button") !== null) {
+      active_button_node = document.querySelector(".active_button")
+      active_button_node.classList.remove("active_button")
+    };
+  };
 };

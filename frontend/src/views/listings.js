@@ -12,8 +12,9 @@ class Listings {
       listings_button.classList.add("active_button")
     });
     new_listing_button.addEventListener("click", function() {
+      App.removeActiveButton()
       Listings.renderListingForm();
-      listings_button.classList.add("active_button")
+      new_listing_button.classList.add("active_button")
     });
     newListingSubmit.addEventListener("click", function() {
       let postListing = ListingFetcher.post();
