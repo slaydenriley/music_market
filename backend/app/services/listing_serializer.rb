@@ -4,6 +4,13 @@ class ListingSerializer
   end
 
   def to_serialized_json
-    @listing.to_json(:only => [:title, :price, :description, :id, :user_id], include: [:user])
+    options = {
+      :only => [
+        :title, :price, :description, :id, :user_id],
+      include:
+        [user: {:only => [:name, :email]}]
+    }
+
+    @listing.to_json(options)
   end
 end
