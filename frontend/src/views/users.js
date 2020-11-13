@@ -7,10 +7,14 @@ class Users {
 // LISTENS FOR BUTTON CLICKS //
   listeners() {
     users.addEventListener("click", function() {
-      let users = new UserFetcher
+      let user = new UserFetcher
+      App.removeActiveButton()
+      users.classList.add("active_button")
     });
     account.addEventListener("click", function() {
       UserFetcher.fetchSingleUser(current_user_id)
+      App.removeActiveButton()
+      account.classList.add("active_button")
     });
   };
 
@@ -80,6 +84,8 @@ class Users {
     listings.forEach(listing => {
       listing.addEventListener("click", function () {
         ListingFetcher.fetchSingleListing(`${listing.id}`)
+        App.removeActiveButton()
+        listings_button.classList.add("active_button")
       })
     })
   }

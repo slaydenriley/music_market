@@ -35,31 +35,40 @@ class App {
 
 // LISTENS FOR BUTTON CLICKS //
   listeners() {
-    login.addEventListener('click', function showLogin() {
+    login.addEventListener('click', function() {
       App.clearPage();
       loginForm.style.display = "block";
+
+      App.removeActiveButton()
+      login.classList.add("active_button")
     });
 
-    signup.addEventListener('click', function showSignup() {
+    signup.addEventListener('click', function() {
       App.clearPage();
       signupForm.style.display = "block";
+
+      App.removeActiveButton()
+      signup.classList.add("active_button")
     });
 
-    signup_submit.addEventListener('click', (e) => {
+    signup_submit.addEventListener('click', function() {
       App.clearPage();
       loggingIn = false;
       signingUp = true;
       let signUp = new SessionFetcher;
     });
 
-    loginsubmit.addEventListener('click', (e) => {
+    loginsubmit.addEventListener('click', function() {
       App.clearPage();
       signingUp = false;
       loggingIn = true;
       let logIn = new SessionFetcher;
     });
 
-    logout.addEventListener('click', function logout() {
+    logout.addEventListener('click', function() {
+      App.removeActiveButton()
+      logout.classList.add("active_button")
+
       if (confirm("Are you sure you want to logout?")) {
         alert("Logging you out!");
         localStorage.clear();

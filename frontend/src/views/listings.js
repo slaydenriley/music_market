@@ -57,6 +57,9 @@ class Listings {
 
   static renderSingleListing(listing) {
     App.clearMain();
+    App.removeActiveButton();
+    listings_button.classList.add("active_button");
+
     let newHtml;
     if (current_user_id === listing.user_id) {
       newHtml = `
@@ -120,7 +123,10 @@ class Listings {
   static deleteButton() {
     let button = document.querySelector(".delete-listing");
     button.addEventListener("click", function() {
-      ListingFetcher.deleteListing(`${button.id}`);
+      if (confirm("Are you sure you want to delete this listing?")) {
+        ListingFetcher.deleteListing(`${button.id}`);
+        App.removeActiveButton();
+      };
     });
   };
 };
