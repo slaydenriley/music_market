@@ -12,7 +12,6 @@
   <body>
 
     <div class="main-content">
-
       <div class="row1">
         <div class="main-menu">
           <button id="login">Login</button>
@@ -24,7 +23,6 @@
           <button id="logout">Logout</button>
         </div>
       </div>
-
       <div class="row2">
         <div class="login-form">
           <h2><em>Login</em></h2>
@@ -36,7 +34,6 @@
           <br/>
           <input type="submit" name="login" value="Sign In" class="loginsubmit">
         </div>
-
         <div class="signup-form">
           <h2><em>Create an Account</em></h2>
           <input type="text" name="name" placeholder="Name" id="name">
@@ -56,10 +53,8 @@
           <br/>
           <input type="submit" name="submit" value="Sign Up" class="submit" id="signup_submit">
         </div>
-
         <div class="single-listing">
         </div>
-
         <div class="listing-form">
           <h2><em>New Listing</em></h2>
           <input type="text" name="title" placeholder="Title" id="listing_title">
@@ -73,7 +68,6 @@
           <br/>
           <input type="submit" name="submit" value="Post" class="new_listing_submit">
         </div>
-
         <div class="listing-edit-form">
           <h2><em>Edit Listing</em></h2>
           <input type="text" name="title" placeholder="Title" id="edit_listing_title">
@@ -88,13 +82,10 @@
           <input type="hidden" name="listing_id" id="listing_id">
           <input type="submit" name="submit" value="Change it!" class="edit_listing_submit">
         </div>
-
         <div class="all-users">
         </div>
-
         <div class="single-user">
         </div>
-
         <div class="user-edit-form">
           <h2><em>Edit Account</em></h2>
           <input type="text" name="name" placeholder="Name" id="edit_name">
@@ -117,21 +108,21 @@
           <br/>
           <input type="submit" name="submit" value="Edit Account" id="edit_submit">
         </div>
-
         <div class="all-listings-cards">
         </div>
-
       </div>
 
-    <script type="text/javascript" src="src/fetchers/session_fetcher.js"></script>
-    <script type="text/javascript" src="src/fetchers/listing_fetcher.js"></script>
-    <script type="text/javascript" src="src/fetchers/user_fetcher.js"></script>
+      <script type="text/javascript" src="src/fetchers/session_fetcher.js"></script>
+      <script type="text/javascript" src="src/fetchers/listing_fetcher.js"></script>
+      <script type="text/javascript" src="src/fetchers/user_fetcher.js"></script>
+      <script type="text/javascript" src="src/views/listings.js"></script>
+      <script type="text/javascript" src="src/views/users.js"></script>
+      <script type="text/javascript" src="src/views/app.js"></script>
+      <script type="text/javascript" src="src/index.js"></script>
+    </div>
 
-    <script type="text/javascript" src="src/views/listings.js"></script>
-    <script type="text/javascript" src="src/views/users.js"></script>
-    <script type="text/javascript" src="src/views/app.js"></script>
-    <script type="text/javascript" src="src/index.js"></script>
-
-
+    <footer>
+      <p><em>Created by Riley Slayden for Flatiron School</em></p>
+    </footer>
   </body>
 </html>
