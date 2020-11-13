@@ -100,3 +100,8 @@ button {
   margin-left: 15%;
   padding: 20px;
 }
+
+.active_button {
+  background-color: red!important;
+  color: white!important;
+}

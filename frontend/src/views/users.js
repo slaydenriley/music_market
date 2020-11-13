@@ -57,12 +57,12 @@ class Users {
     // Adds an edit button to account if user is logged in //
     if (current_user_id === user.id) {
       singleUser.innerHTML += newHtml + `<button class="edit_account_button" id=${user.id}>Edit Account</button>`
+      renderListings()
+      Users.editUserButton(user)
     }
     else {
       singleUser.innerHTML += newHtml
     };
-    renderListings();
-    Users.editUserButton(user);
   };
 
 // MAKES USER ACCOUNTS CLICKABLE //

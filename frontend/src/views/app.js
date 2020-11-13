@@ -122,4 +122,16 @@ class App {
     headerright.innerHTML += `<em> Welcome ${user.name}!</em>`;
     current_user_id = user.id;
   }
+
+  static removeActiveButton() {
+    let node = document.querySelector(".active_button")
+    if (node === undefined) {
+      console.log("here")
+    }
+    else {
+      node.forEach(button => {
+        button.classList.remove("active_button")
+      })
+    }
+  }
 };

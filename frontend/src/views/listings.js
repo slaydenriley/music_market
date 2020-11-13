@@ -7,10 +7,13 @@ class Listings {
 // LISTENS FOR BUTTON CLICKS //
   listeners() {
     listings_button.addEventListener("click", function() {
+      App.removeActiveButton()
       let fetchListings = new ListingFetcher
+      listings_button.classList.add("active_button")
     });
     new_listing_button.addEventListener("click", function() {
       Listings.renderListingForm();
+      listings_button.classList.add("active_button")
     });
     newListingSubmit.addEventListener("click", function() {
       let postListing = ListingFetcher.post();
