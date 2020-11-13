@@ -29,8 +29,8 @@ class Listings {
     list.forEach(listing => {
       let newHtml = `
         <button class="card" id="${listing.id}">
-        <h3>${listing.title}</h3> <h4>${listing.price}</h4>
-        <p>${listing.description}</p></button>`;
+        <h2><em>${listing.title}</em></h2> <p>Price: ${listing.price}</p>
+        <p id="button_link"><em>Learn More...</em></p></button>`;
 
       allListings.innerHTML += newHtml;
     });
@@ -60,21 +60,17 @@ class Listings {
     App.removeActiveButton();
     listings_button.classList.add("active_button");
 
-    let newHtml;
+    let newHtml = `
+      <h2><em>${listing.title}</em></h2>
+      <p>Price: ${listing.price}</p>
+      <p>Description: ${listing.description}</p></div>
+      <p>${listing.user.email}</p>`
+
     if (current_user_id === listing.user_id) {
-      newHtml = `
-        <h3>${listing.title}</h3>
-        <h4>${listing.price}</h4>
-        <p>${listing.description}</p></div>
+      newHtml += `
         <button class="edit-listing" id="${listing.id}">Edit Listing</button>
         <button class="delete-listing" id="${listing.id}">Delete Listing</button>`
     }
-    else {
-      newHtml = `
-        <h3>${listing.title}</h3>
-        <h4>${listing.price}</h4>
-        <p>${listing.description}</p></div>`
-    };
 
     singleListing.style.display = "block";
     singleListing.innerHTML += newHtml;
