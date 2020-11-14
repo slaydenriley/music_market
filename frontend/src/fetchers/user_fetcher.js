@@ -47,7 +47,17 @@ static editUser() {
 
     fetch(`${BACKEND_URL}/users`, configObj)
     .then(user => user.json())
-    .then(user => Users.renderSingleUser(user))
+    .then(function(user) {
+      if (user.status === 400) {
+        let error_message = document.querySelector(".edit_user_error_message")
+        error_message.innerHTML = ""
+        error_message.innerHTML += `<p class="error_message">${user.error}</p>`
+        loginForm.style.display = "block"
+      }
+      else {
+        Users.renderSingleUser(user)
+      };
+    });
 
 };
 };

@@ -77,6 +77,16 @@ class SessionFetcher {
 
     fetch(`${BACKEND_URL}/signup`, configObj)
     .then(user => user.json())
-    .then(user => App.showMainPage(user))
+    .then(function(user) {
+      if (user.status === 400) {
+        let error_message = document.querySelector(".signup_error_message")
+        error_message.innerHTML = ""
+        error_message.innerHTML += `<p class="error_message">${user.error}</p>`
+        signupForm.style.display = "block"
+      }
+      else {
+        App.showMainPage(user)
+      };
+    })
   };
 }
