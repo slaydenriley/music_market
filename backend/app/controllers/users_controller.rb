@@ -15,7 +15,11 @@ class UsersController < ApplicationController
       render json: UserSerializer.new(user).to_serialized_json
       session[:user_id] = user.id
     else
-      render text: "error!"
+      payload = {
+        error: "Something went wrong. Please try again.",
+        status: 400
+      }
+      render :json => payload, :status => :bad_request
     end
   end
 
@@ -25,7 +29,11 @@ class UsersController < ApplicationController
     if user.save
       render json: UserSerializer.new(user).to_serialized_json
     else
-      render text: "error!"
+      payload = {
+        error: "Something went wrong. Please try again.",
+        status: 400
+      }
+      render :json => payload, :status => :bad_request
     end
   end
 

@@ -14,7 +14,11 @@ class ListingsController < ApplicationController
     if listing.save
       render json: ListingSerializer.new(listing).to_serialized_json
     else
-      render text: "Nope!"
+      payload = {
+        error: "Something went wrong. Please try again.",
+        status: 400
+      }
+      render :json => payload, :status => :bad_request
     end
   end
 
@@ -24,7 +28,12 @@ class ListingsController < ApplicationController
     if listing.save
       render json: ListingSerializer.new(listing).to_serialized_json
     else
-      render text: "Nope!"
+
+      payload = {
+        error: "Something went wrong. Please try again.",
+        status: 400
+      }
+      render :json => payload, :status => :bad_request
     end
   end
 
@@ -41,7 +50,8 @@ class ListingsController < ApplicationController
       :title,
       :price,
       :description,
-      :user_id
+      :user_id,
+      :id
     )
   end
 end
