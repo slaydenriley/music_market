@@ -5,9 +5,15 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             render json: user, only: [:username, :name, :id]
-        else
+        elsif user == nil
           payload = {
-            error: "No such user; check the submitted username",
+            error: "Cannot find user! Please check username.",
+            status: 400
+          }
+          render :json => payload, :status => :bad_request
+        elsif user.authenticate(params[:password]) == false
+          payload = {
+            error: "Incorrect password. Please check password.",
             status: 400
           }
           render :json => payload, :status => :bad_request
