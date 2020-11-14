@@ -100,3 +100,8 @@ footer {
   color: purple;
   font-weight: bold;
 }
+
+.error_message {
+  color: red;
+  font-style: italic;
+}

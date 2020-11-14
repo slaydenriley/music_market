@@ -59,6 +59,7 @@ class App {
     });
 
     loginsubmit.addEventListener('click', function() {
+      console.log("clicked!")
       App.clearPage();
       signingUp = false;
       loggingIn = true;
