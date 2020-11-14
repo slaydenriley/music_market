@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             render json: user, only: [:username, :name, :id]
         else
-            render json: { message: "User not found" }
+          payload = {
+            error: "No such user; check the submitted username",
+            status: 400
+          }
+          render :json => payload, :status => :bad_request
         end
     end
 
