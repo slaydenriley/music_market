@@ -25,14 +25,27 @@ class Listings {
   static renderList(list) {
     App.clearMain();
     allListings.style.display = "block";
-
+    let newHtml;
     list.forEach(listing => {
-      let newHtml = `
+      if (listing.image_link !== null) {
+        newHtml = `
+          <button class="card" id="${listing.id}">
+          <h2><em>${listing.title}</em></h2>
+          <img src="${listing.image_link}"><br/>
+          <p>Price: ${listing.price}</p>
+          <p id="button_link"><em>Learn More...</em></p></button>`;
+
+          allListings.innerHTML += newHtml;
+      }
+      else {
+      newHtml = `
         <button class="card" id="${listing.id}">
-        <h2><em>${listing.title}</em></h2> <p>Price: ${listing.price}</p>
+        <h2><em>${listing.title}</em></h2>
+        <p>Price: ${listing.price}</p>
         <p id="button_link"><em>Learn More...</em></p></button>`;
 
-      allListings.innerHTML += newHtml;
+        allListings.innerHTML += newHtml;
+      }
     });
 
     Listings.cardButtons();
@@ -64,7 +77,8 @@ class Listings {
       <h2><em>${listing.title}</em></h2>
       <p>Price: ${listing.price}</p>
       <p>Description: ${listing.description}</p></div>
-      <p>${listing.user.email}</p>`
+      <p>${listing.user.email}</p>
+      <img src="${listing.image_link}"><br/>`
 
     if (current_user_id === listing.user_id) {
       newHtml += `

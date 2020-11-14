@@ -23,7 +23,6 @@ let active_button_node;
 // APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
   constructor() {
-    console.log("new app created!")
     App.clearPage()
     this.listeners()
   };

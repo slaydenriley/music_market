@@ -110,3 +110,7 @@ footer {
   color: red;
   font-style: italic;
 }
+
+img {
+  width: 100px;
+}
