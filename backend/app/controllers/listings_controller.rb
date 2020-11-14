@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
 
   def create
     listing = Listing.new(listing_params)
+    binding.pry
     if listing.save
       render json: ListingSerializer.new(listing).to_serialized_json
     else
@@ -51,7 +52,8 @@ class ListingsController < ApplicationController
       :price,
       :description,
       :user_id,
-      :id
+      :id,
+      :image_link
     )
   end
 end
