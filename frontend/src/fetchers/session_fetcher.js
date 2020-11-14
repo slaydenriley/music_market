@@ -10,6 +10,7 @@ class SessionFetcher {
     else {
       console.log("well....?")
     };
+
   };
 
 // LOGIN FETCH //
@@ -35,10 +36,10 @@ class SessionFetcher {
       .then(user => user.json())
       .then(function(user) {
         if (user.status === 400) {
-          let error_message = document.querySelector(".login-form")
+          let error_message = document.querySelector(".error_message")
+          error_message.innerHTML = ""
           error_message.innerHTML += `<p class="error_message">${user.error}</p>`
-          error_message.style.display = "block"
-          console.log(user)
+          loginForm.style.display = "block"
         }
         else {
           App.showMainPage(user)

@@ -23,14 +23,9 @@ let active_button_node;
 // APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
   constructor() {
-    if (localStorage.length === 0) {
-      this.listeners();
-      App.clearPage();
-    }
-    else {
-      App.clearPage();
-      App.showMainPage()
-    }
+    console.log("new app created!")
+    App.clearPage()
+    this.listeners()
   };
 
 // LISTENS FOR BUTTON CLICKS //
@@ -59,7 +54,6 @@ class App {
     });
 
     loginsubmit.addEventListener('click', function() {
-      console.log("clicked!")
       App.clearPage();
       signingUp = false;
       loggingIn = true;
