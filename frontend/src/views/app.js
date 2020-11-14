@@ -66,8 +66,6 @@ class App {
     });
 
     logout.addEventListener('click', function() {
-      App.removeActiveButton()
-      logout.classList.add("active_button")
 
       if (confirm("Are you sure you want to logout?")) {
         alert("Logging you out!");
