@@ -24,12 +24,14 @@ class ListingFetcher {
     let userInputForTitle = document.querySelector("#listing_title").value;
     let userInputForPrice = document.querySelector("#listing_price").value;
     let userInputForDescription = document.querySelector("#listing_description").value;
+    let imageLink = document.querySelector("#image_upload").value;
 
     let formData = {
         title: userInputForTitle,
         price: userInputForPrice,
         description: userInputForDescription,
-        user_id: current_user_id
+        user_id: current_user_id,
+        image_link: imageLink
       };
 
      let configObj = {
@@ -52,6 +54,7 @@ class ListingFetcher {
     let price = document.querySelector("#edit_listing_price").value;
     let description = document.querySelector("#edit_listing_description").value;
     let id = document.querySelector("#listing_id").value;
+    let imageLink = document.querySelector("#image_upload").value;
 
     let formData = {
       title: title,
@@ -59,6 +62,7 @@ class ListingFetcher {
       description: description,
       user_id: current_user_id,
       id: id,
+      image_link: imageLink
     };
 
     let configObj = {

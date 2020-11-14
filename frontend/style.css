@@ -49,7 +49,10 @@ button {
 }
 
 .main-menu button:hover {
-  background-color: #ccc; /* Dark grey background on mouse-over */
+  background-color: #ccc;
+  transform: scale(1.05);
+  transition-duration: .1s;
+
 }
 
 .login-form, .signup-form, .listing-form, .listing-edit-form, .user-edit-form, .single-listing, .single-user {
@@ -81,6 +84,8 @@ button {
 
 .card:hover, .user_card:hover {
   background-color: #ccc;
+  transform: scale(1.05);
+  transition-duration: .2s;
 }
 
 footer {
