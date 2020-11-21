@@ -27,11 +27,11 @@ class Listings {
     allListings.style.display = "block";
     let newHtml;
     list.forEach(listing => {
-      if (listing.image_link !== null) {
+      if (listing.image_link !== null || listing.image_link !== "") {
         newHtml = `
           <button class="card" id="${listing.id}">
           <h2><em>${listing.title}</em></h2>
-          <img src="${listing.image_link}"><br/>
+          <img class="thumbnail" src="${listing.image_link}">
           <p>Price: ${listing.price}</p>
           <p id="button_link"><em>Learn More...</em></p></button>`;
 

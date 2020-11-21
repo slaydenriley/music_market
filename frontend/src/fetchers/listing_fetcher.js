@@ -54,7 +54,7 @@ class ListingFetcher {
     let price = document.querySelector("#edit_listing_price").value;
     let description = document.querySelector("#edit_listing_description").value;
     let id = document.querySelector("#listing_id").value;
-    let imageLink = document.querySelector("#image_upload").value;
+    let imageLink = document.querySelector("#edit_image_upload").value;
 
     let formData = {
       title: title,

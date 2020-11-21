@@ -3,7 +3,7 @@ body {
   margin: 0;
   text-align: center;
   margin-left: 200px;
-  margin-right: 200px;;
+  margin-right: 200px;
 }
 
 input {
@@ -35,6 +35,9 @@ button {
 
 .row2 {
   margin-left: 220px;
+  height: 500px;
+  overflow: scroll;
+  padding-top: 10px;
 }
 
 .main-menu button {
@@ -80,6 +83,7 @@ button {
   float: left;
   border: 1px solid black;
   border-radius: 10px;
+  height: 200px;
 }
 
 .card:hover, .user_card:hover {
@@ -88,6 +92,7 @@ button {
   transition-duration: .2s;
 }
 
+
 footer {
   position: absolute;
   bottom: 0;
@@ -95,6 +100,7 @@ footer {
   border-top: 1px solid black;
   margin-bottom: 10px;
   width: 70%;
+
 }
 
 .active_button {
@@ -113,4 +119,8 @@ footer {
 
 img {
   width: 100px;
+}
+
+.thumbnail {
+  width: 50px;
 }
