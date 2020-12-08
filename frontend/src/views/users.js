@@ -55,7 +55,7 @@ class Users {
     let newHtml = `
       <h3>${user.name}</h3>
       <p><em>Username: ${user.username}</em></p>
-      <p><em>Email: ${user.email}</em></p>
+      <p><em><a href="${user.email}">Send email</a></em></p>
       <h4>${user.name}'s Listings </br>`
 
     // Adds an edit button to account if user is logged in //
