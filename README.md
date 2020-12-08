@@ -1,7 +1,5 @@
-# README
-
-## Music Market
-### Rails+JS portfolio project for the Flatiron School
+# Music Market
+### Rails and JS portfolio project for Flatiron School
 
 ## Overview
 This app is a marketplace for anyone wanting to sell used instruments! It uses a Rails API backend with a vanilla Javascript frontend, and is a SPA (single page application).
