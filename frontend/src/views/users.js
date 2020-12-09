@@ -26,9 +26,9 @@ class Users {
     users.forEach(user => {
       let newHtml = `
         <button class="user_card" id="${user.id}">
-        <h4>${user.name}</h4>
-        <p>${user.username}</p>
-        <p>${user.email}</p></button>`;
+        <h2><em>${user.name}</em></h2>
+        <p><em>Listings: ${user.listings.length}</em></p>
+        <p><em><a href="mailto:${user.email}">Send Email</a></em></p></button>`;
 
       allUsers.innerHTML += newHtml
     });
@@ -45,7 +45,7 @@ class Users {
     function renderListings() {
       let listings = user.listings
       listings.forEach(listing => {
-        let html = `<h4>Listings:</h4> <p><a href="#" class="user_listings" id=${listing.id}>${listing.title}</a></p>`
+        let html = `<h2><em>Listings:</em></h2> <p><a href="#" class="user_listings" id=${listing.id}>${listing.title}</a></p>`
         singleUser.innerHTML += html
       });
       Users.userListingsAccount()
@@ -53,7 +53,7 @@ class Users {
 
     // General HTML to be used for all user accounts //
     let newHtml = `
-      <h2>${user.name}</h2>
+      <h2><em>${user.name}</em></h2>
       <p><em><a href="mailto: ${user.email}">Send email</a></em></p>
       <p><em>Username: ${user.username}</em></p>`
 
