@@ -78,7 +78,7 @@ class Listings {
       <h4>Price: ${listing.price}</h4>
       <h3>Description:</h3> <p>${listing.description}</p></div>
       <p><em><a href="mailto:${listing.user.email}">Message ${listing.user.name}</a></em></p>
-      <img src="${listing.image_link}"><br/>`
+      <a href="${listing.image_link}" target="_blank"><img src="${listing.image_link}"></a><br/>`
 
     if (current_user_id === listing.user_id) {
       newHtml += `
