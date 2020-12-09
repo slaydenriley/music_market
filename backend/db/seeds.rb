@@ -19,26 +19,36 @@ riley = User.create(
   name: "Riley Slayden",
   username: "rileyslayden",
   email: "slaydenriley@gmail.com",
+  description: "My name is Riley Slayden and I am a banjo player for the band National Park Radio",
   password_digest: "#{User.digest('codydog')}")
 
 morgan = User.create(
   name: "Morgan Hubbard",
   username: "morganhubbard",
   email: "mbhubbard@gmail.com",
+  description: "Hi, I'm Morgan",
   password_digest: "#{User.digest('codydog')}")
 
 maddi = User.create(
   name: "Maddi Ogle",
   username: "maddiogle",
   email: "maddiogle@gmail.com",
+  description: "Hi, I'm Maddi Ogle and I play the fiddle.",
   password_digest: "#{User.digest('codydog')}")
 
 ## Create Listings
 banjo = riley.listings.build(
   title: "Banjo for Sale!",
   price: "$200",
+  description: "Nice grand piano. Needs tuned. You haul and it's yours!",
+  image_link: "https://americanmusicworld.com/wp-content/uploads/2019/07/baldwin-r-grand-piano-open-1006x1024.jpg")
+
+piano = riley.listings.build(
+  title: "Grand Piano FREE",
+  price: "FREE, you haul",
   description: "Very nice banjo for sale!",
   image_link: "https://d1aeri3ty3izns.cloudfront.net/media/54/543065/600/preview.jpg")
+
 
 fiddle = morgan.listings.build(
   title: "Fiddle for Sale",
@@ -54,5 +64,6 @@ mando = maddi.listings.build(
 
 
 banjo.save
+piano.save
 fiddle.save
 mando.save
