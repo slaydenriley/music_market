@@ -75,9 +75,9 @@ class Listings {
 
     let newHtml = `
       <h2><em>${listing.title}</em></h2>
-      <p>Price: ${listing.price}</p>
-      <p>Description: ${listing.description}</p></div>
-      <p>${listing.user.email}</p>
+      <h4>Price: ${listing.price}</h4>
+      <h3>Description:</h3> <p>${listing.description}</p></div>
+      <p><em><a href="mailto:${listing.user.email}">Message ${listing.user.name}</a></em></p>
       <img src="${listing.image_link}"><br/>`
 
     if (current_user_id === listing.user_id) {
