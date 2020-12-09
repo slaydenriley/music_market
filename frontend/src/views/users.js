@@ -45,7 +45,7 @@ class Users {
     function renderListings() {
       let listings = user.listings
       listings.forEach(listing => {
-        let html = `<h2><em>Listings:</em></h2> <p><a href="#" class="user_listings" id=${listing.id}>${listing.title}</a></p>`
+        let html = `<p><a href="#" class="user_listings" id=${listing.id}>${listing.title}</a></p>`
         singleUser.innerHTML += html
       });
       Users.userListingsAccount()
@@ -55,12 +55,14 @@ class Users {
     let newHtml = `
       <h2><em>${user.name}</em></h2>
       <p><em><a href="mailto: ${user.email}">Send email</a></em></p>
-      <p><em>Username: ${user.username}</em></p>`
+      <p><em>Username: ${user.username}</em></p>
+      <h2><em>Listings:</em></h2>`
 
     // Adds an edit button to account if user is logged in //
     if (current_user_id === user.id) {
-      singleUser.innerHTML += newHtml + `<button class="edit_account_button" id=${user.id}>Edit Account</button>`
+      singleUser.innerHTML += newHtml
       renderListings()
+      singleUser.innerHTML += `<button class="edit_account_button" id=${user.id}>Edit Account</button>`
       Users.editUserButton(user)
     }
     else {
