@@ -115,11 +115,13 @@ class Listings {
       let price = document.querySelector("#edit_listing_price");
       let description = document.querySelector("#edit_listing_description");
       let id = document.querySelector("#listing_id");
+      let link = document.querySelector("#edit_image_upload")
 
       title.value = `${listing.title}`;
       price.value = `${listing.price}`;
       description.value = `${listing.description}`;
       id.value = `${listing.id}`;
+      link.value = `${listing.image_link}`
 
       App.clearMain();
       editListingForm.style.display = "block";
