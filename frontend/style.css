@@ -33,7 +33,7 @@ button {
   margin-left: 20px;
 }
 
-.row2 {
+.row2, .user_edit_form {
   margin-left: 220px;
   height: 500px;
   overflow: scroll;
