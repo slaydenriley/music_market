@@ -2,12 +2,13 @@
 class Users {
   constructor() {
     this.listeners();
+    let user = new UserFetcher
   };
 
 // LISTENS FOR BUTTON CLICKS //
   listeners() {
     users.addEventListener("click", function() {
-      let user = new UserFetcher
+      UserFetcher.fetchUsers()
       App.removeActiveButton()
       users.classList.add("active_button")
     });
@@ -114,7 +115,7 @@ class Users {
     });
 
     edit_submit.addEventListener("click", function() {
-      let editUser = UserFetcher.editUser(`${user.id}`);
+      UserFetcher.editUser();
     });
   };
 };

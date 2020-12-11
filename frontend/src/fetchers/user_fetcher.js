@@ -1,10 +1,10 @@
 // // USER FETCHER COMMUNICATES WITH RAILS API FOR USES //
 class UserFetcher {
-  constructor() {
-    this.fetchUsers();
-  };
+  //constructor() {
+  //  this.fetchUsers();
+//  };
 
-  fetchUsers() {
+  static fetchUsers() {
     fetch(`${BACKEND_URL}/users`)
     .then(users => users.json())
     .then(users => Users.renderUsers(users))
@@ -47,7 +47,11 @@ static editUser() {
 
     fetch(`${BACKEND_URL}/users`, configObj)
     .then(user => user.json())
-    .then(function(user) {
+    .then(user => console.log(user))
+
+}
+}
+    /*function(user) {
       if (user.status === 400) {
         let error_message = document.querySelector(".edit_user_error_message")
         error_message.innerHTML = ""
@@ -59,7 +63,7 @@ static editUser() {
       };
     });
   };
-};
+};*/
 
 /*
 function(user) {
