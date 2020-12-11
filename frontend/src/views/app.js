@@ -11,6 +11,8 @@ const listingForm = document.querySelector(".listing-form");
 const newListingSubmit = document.querySelector(".new_listing_submit");
 const userEditForm = document.querySelector(".user-edit-form")
 const editListingForm = document.querySelector(".listing-edit-form")
+const edit_submit = document.querySelector("#edit_submit")
+const button_submit = document.querySelector(".edit_listing_submit")
 const BACKEND_URL = "http://localhost:3000";
 
 // THESE VARIABLES WILL CHANGE //

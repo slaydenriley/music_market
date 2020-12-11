@@ -42,7 +42,6 @@ class Users {
 
 // RENDERS SINGLE USER //
   static renderSingleUser(user) {
-    console.log(user)
     App.clearMain();
     singleUser.style.display = "block";
 
@@ -99,7 +98,6 @@ class Users {
   static editUserButton(user) {
     let button = document.querySelector(".edit_account_button")
 
-
     button.addEventListener("click", function() {
       let name = document.querySelector("#edit_name");
       let username = document.querySelector("#edit_username");
@@ -118,5 +116,3 @@ class Users {
     });
   };
 };
-
-const edit_submit = document.querySelector("#edit_submit")

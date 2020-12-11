@@ -19,6 +19,9 @@ class Listings {
     newListingSubmit.addEventListener("click", function() {
       let postListing = ListingFetcher.post();
     });
+    button_submit.addEventListener("click", function() {
+      let editListing = ListingFetcher.editListing();
+    });
   };
 
 // RENDERS ALL LISTINGS //
@@ -108,7 +111,6 @@ class Listings {
 // ADDS EVENT LISTERS TO LISTING EDIT AND DELETE BUTTONS //
   static editButton(listing) {
     let button = document.querySelector(".edit-listing")
-    let button_submit = document.querySelector(".edit_listing_submit")
 
     button.addEventListener("click", function() {
       let title = document.querySelector("#edit_listing_title");
@@ -125,10 +127,6 @@ class Listings {
 
       App.clearMain();
       editListingForm.style.display = "block";
-    });
-
-    button_submit.addEventListener("click", function() {
-      let editListing = ListingFetcher.editListing(`${button.id}`);
     });
   };
 
