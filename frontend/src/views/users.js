@@ -2,7 +2,6 @@
 class Users {
   constructor() {
     this.listeners();
-    let user = new UserFetcher
   };
 
 // LISTENS FOR BUTTON CLICKS //
@@ -16,6 +15,10 @@ class Users {
       UserFetcher.fetchSingleUser(current_user_id)
       App.removeActiveButton()
       account.classList.add("active_button")
+    });
+
+    edit_submit.addEventListener("click", function() {
+      UserFetcher.editUser();
     });
   };
 
@@ -39,13 +42,13 @@ class Users {
 
 // RENDERS SINGLE USER //
   static renderSingleUser(user) {
+    console.log(user)
     App.clearMain();
     singleUser.style.display = "block";
 
     // This function takes a user's listings and iterates through them //
     function renderListings() {
-      let listings = user.listings
-      listings.forEach(listing => {
+      user.listings.forEach(listing => {
         let html = `<p><a href="#" class="user_listings" id=${listing.id}>${listing.title}</a></p>`
         singleUser.innerHTML += html
       });
@@ -95,7 +98,7 @@ class Users {
 
   static editUserButton(user) {
     let button = document.querySelector(".edit_account_button")
-    //let button_submit = document.querySelector(".edit_listing_submit")
+
 
     button.addEventListener("click", function() {
       let name = document.querySelector("#edit_name");
@@ -113,9 +116,7 @@ class Users {
       App.clearMain();
       userEditForm.style.display = "block";
     });
-
-    edit_submit.addEventListener("click", function() {
-      UserFetcher.editUser();
-    });
   };
 };
+
+const edit_submit = document.querySelector("#edit_submit")

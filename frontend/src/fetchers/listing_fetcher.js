@@ -77,7 +77,6 @@ class ListingFetcher {
       fetch(`${BACKEND_URL}/listings`, configObj)
       .then(listing => listing.json())
       .then(listing => Listings.renderSingleListing(listing))
-
   };
 
 // DELETE LISTING //
