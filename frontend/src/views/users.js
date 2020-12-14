@@ -16,7 +16,6 @@ class Users {
       App.removeActiveButton()
       account.classList.add("active_button")
     });
-
     edit_submit.addEventListener("click", function() {
       UserFetcher.editUser();
     });
@@ -45,15 +44,6 @@ class Users {
     App.clearMain();
     singleUser.style.display = "block";
 
-    // This function takes a user's listings and iterates through them //
-    function renderListings() {
-      user.listings.forEach(listing => {
-        let html = `<p><a href="#" class="user_listings" id=${listing.id}>${listing.title}</a></p>`
-        singleUser.innerHTML += html
-      });
-      Users.userListingsAccount()
-    };
-
     // General HTML to be used for all user accounts //
     let newHtml = `
       <h2><em>${user.name}</em></h2>
@@ -64,13 +54,29 @@ class Users {
     // Adds an edit button to account if user is logged in //
     if (current_user_id === user.id) {
       singleUser.innerHTML += newHtml
-      renderListings()
       singleUser.innerHTML += `<button class="edit_account_button" id=${user.id}>Edit Account</button>`
       Users.editUserButton(user)
     }
     else {
       singleUser.innerHTML += newHtml
-      renderListings()
+    };
+
+    renderListings()
+
+    // This function takes a user's listings and iterates through them //
+    function renderListings() {
+      user.listings.forEach(listing => {
+        let html = `<h4><em><a href="#" class="user_listings" id=${listing.id}>${listing.title}</a></em></h4>`
+        singleUser.innerHTML += html
+      })
+
+      let buttons = document.querySelectorAll(".user_listings")
+      buttons.forEach(button => {
+        console.log(button)
+        button.addEventListener("click", function() {
+          ListingFetcher.fetchSingleListing(button.id)
+        })
+      })
     };
   };
 
@@ -84,16 +90,6 @@ class Users {
     });
   };
 
-  static userListingsAccount() {
-    let listings = document.querySelectorAll(".user_listings")
-    listings.forEach(listing => {
-      listing.addEventListener("click", function () {
-        ListingFetcher.fetchSingleListing(`${listing.id}`)
-        App.removeActiveButton()
-        listings_button.classList.add("active_button")
-      })
-    })
-  }
 
   static editUserButton(user) {
     let button = document.querySelector(".edit_account_button")

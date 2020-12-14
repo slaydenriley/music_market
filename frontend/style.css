@@ -124,3 +124,7 @@ img {
 .thumbnail {
   width: 50px;
 }
+
+.user_listings {
+  z-index: 10000;
+}

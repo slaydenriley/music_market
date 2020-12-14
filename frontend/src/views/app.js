@@ -21,7 +21,6 @@ let loggingIn = false;
 let current_user_id;
 let active_button;
 let active_button_node;
-
 // APP CLASS INSTANIATED FROM INDEX.JS //
 class App {
   constructor() {
