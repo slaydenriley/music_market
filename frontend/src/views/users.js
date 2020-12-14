@@ -72,7 +72,6 @@ class Users {
 
       let buttons = document.querySelectorAll(".user_listings")
       buttons.forEach(button => {
-        console.log(button)
         button.addEventListener("click", function() {
           ListingFetcher.fetchSingleListing(button.id)
         })
