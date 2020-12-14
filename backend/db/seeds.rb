@@ -40,13 +40,13 @@ maddi = User.create(
 banjo = riley.listings.build(
   title: "Banjo for Sale!",
   price: "$200",
-  description: "Nice grand piano. Needs tuned. You haul and it's yours!",
+  description: "Very nice banjo for sale!",
   image_link: "https://d1aeri3ty3izns.cloudfront.net/media/54/543065/600/preview.jpg ")
 
 piano = riley.listings.build(
   title: "Grand Piano FREE",
   price: "FREE, you haul",
-  description: "Very nice banjo for sale!",
+  description: "Nice grand piano. Needs tuned. You haul and it's yours!",
   image_link: "https://americanmusicworld.com/wp-content/uploads/2019/07/baldwin-r-grand-piano-open-1006x1024.jpg")
 
 
