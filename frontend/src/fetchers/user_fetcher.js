@@ -26,13 +26,15 @@ class UserFetcher {
     let configObj = {}
 
     formData = {
-      name: name,
-      email: email,
-      username: username,
-      description: description,
-      password: password,
-      password_confirmation: password_confirmation,
-      id: id
+      user: {
+        name: name,
+        email: email,
+        username: username,
+        description: description,
+        password: password,
+        password_confirmation: password_confirmation,
+        id: id
+      }
     };
 
     configObj = {
@@ -41,8 +43,8 @@ class UserFetcher {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify(formData)
-      };
+      body: JSON.stringify(formData)
+    };
 
     fetch(`${BACKEND_URL}/users`, configObj)
     .then(user => user.json())
