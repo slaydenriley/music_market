@@ -83,7 +83,7 @@ button {
   float: left;
   border: 1px solid black;
   border-radius: 10px;
-  height: 230px;
+  height: 250px;
 }
 
 .card:hover, .user_card:hover {

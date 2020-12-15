@@ -38,15 +38,15 @@ class Listings {
         listing.favorites.forEach(fav => {
           let userid = parseInt(fav.user_id)
           if (userid === current_user_id) {
-            newFav = `<a href="#" id="${listing.id}" class="remove_favorite_listing">Remove Favorite</a>`
+            newFav = `<em><a href="#" id="${listing.id}" class="remove_favorite_listing">Remove Favorite</a></em>`
           }
           else {
-            newFav = `<a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a>`
+            newFav = `<em><a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a></em>`
           }
         })
       }
       else {
-        newFav = `<a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a>`
+        newFav = `<em><a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a></em>`
       }
 
       if (listing.image_link !== null || listing.image_link !== "") {
