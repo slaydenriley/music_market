@@ -1,10 +1,15 @@
 class FavoritesController < ApplicationController
+
+  def index
+    favorites = Favorite.find_by(user_id: params[:user_id])
+  end
+
   def create
     favorite = Favorite.new(favorite_params)
     if favorite.save
       render json: {user_id: favorite_params[:user_id], listing_id: favorite_params[:listing_id]}
     else
-      binding.pry
+
     end
   end
 
