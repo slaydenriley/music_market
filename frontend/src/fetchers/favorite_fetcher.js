@@ -18,7 +18,7 @@ class FavoriteFetcher {
         };
     fetch(`${BACKEND_URL}/favorites`, configObj)
     .then(fav => fav.json())
-    .then(fav => console.log(fav))
+    .then(App.clearMain())
   }
 
   static find_favorites(id) {

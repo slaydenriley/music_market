@@ -30,26 +30,10 @@ class Listings {
     allListings.style.display = "block";
     let newHtml;
     let newFav;
+
+    // Creates Listing Cards //
     list.forEach(listing => {
-      if (listing.image_link !== null || listing.image_link !== "") {
-        newHtml = `
-          <button class="card" id="${listing.id}">
-          <h2><em>${listing.title}</em></h2>
-          <img class="thumbnail" src="${listing.image_link}">
-          <p>Price: ${listing.price}</p>
-          <p id="button_link"><em>Learn More...</em></p></button>`
-
-          allListings.innerHTML += newHtml;
-      }
-      else {
-      newHtml = `
-        <button class="card" id="${listing.id}">
-        <h2><em>${listing.title}</em></h2>
-        <p>Price: ${listing.price}</p>
-        <p id="button_link"><em>Learn More...</em></p></button>`;
-
-        allListings.innerHTML += newHtml;
-      }
+      // This adds the favorite add or remove buttons //
       if (listing.favorites.length !== 0) {
         listing.favorites.forEach(fav => {
           let userid = parseInt(fav.user_id)
@@ -64,7 +48,27 @@ class Listings {
       else {
         newFav = `<a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a>`
       }
-      allListings.innerHTML += newFav
+
+      if (listing.image_link !== null || listing.image_link !== "") {
+        newHtml = `
+          <button class="card" id="${listing.id}">
+          ${newFav}
+          <h2><em>${listing.title}</em></h2>
+          <img class="thumbnail" src="${listing.image_link}">
+          <p>Price: ${listing.price}</p>
+          <p id="button_link"><em>Learn More...</em></p></button>`
+
+          allListings.innerHTML += newHtml;
+      }
+      else {
+      newHtml = `
+        <button class="card" id="${listing.id}">
+        <h2><em>${listing.title}</em></h2>
+        <p>Price: ${listing.price}</p>
+        <p id="button_link"><em>Learn More...</em></p></button>` + newFav
+
+        allListings.innerHTML += newHtml;
+      }
 
     });
 
