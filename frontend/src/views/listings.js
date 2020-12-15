@@ -29,6 +29,7 @@ class Listings {
     App.clearMain();
     allListings.style.display = "block";
     let newHtml;
+    let newFav;
     list.forEach(listing => {
       if (listing.image_link !== null || listing.image_link !== "") {
         newHtml = `
@@ -36,8 +37,7 @@ class Listings {
           <h2><em>${listing.title}</em></h2>
           <img class="thumbnail" src="${listing.image_link}">
           <p>Price: ${listing.price}</p>
-          <p id="button_link"><em>Learn More...</em></p></button>
-          <a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a>;`
+          <p id="button_link"><em>Learn More...</em></p></button>`
 
           allListings.innerHTML += newHtml;
       }
@@ -46,11 +46,26 @@ class Listings {
         <button class="card" id="${listing.id}">
         <h2><em>${listing.title}</em></h2>
         <p>Price: ${listing.price}</p>
-        <p id="button_link"><em>Learn More...</em></p></button>
-        <button class="favorite_listing">Favorite this listing!</button>;`;
+        <p id="button_link"><em>Learn More...</em></p></button>`;
 
         allListings.innerHTML += newHtml;
       }
+      if (listing.favorites.length !== 0) {
+        listing.favorites.forEach(fav => {
+          let userid = parseInt(fav.user_id)
+          if (userid === current_user_id) {
+            newFav = `<a href="#" id="${listing.id}" class="remove_favorite_listing">Remove Favorite</a>`
+          }
+          else {
+            newFav = `<a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a>`
+          }
+        })
+      }
+      else {
+        newFav = `<a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a>`
+      }
+      allListings.innerHTML += newFav
+
     });
 
     Listings.cardButtons();
@@ -116,6 +131,13 @@ class Listings {
     buttons.forEach(button => {
       button.addEventListener("click", function() {
         FavoriteFetcher.create_favorites(button.id)
+      })
+    })
+
+    let delete_fav = document.querySelectorAll(".remove_favorite_listing")
+    delete_fav.forEach(del => {
+      del.addEventListener("click", function() {
+        FavoriteFetcher.delete_favorites(del.id)
       })
     })
   }

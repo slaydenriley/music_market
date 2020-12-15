@@ -27,7 +27,22 @@ class FavoriteFetcher {
     .then(user => Favorites.renderFavs(user.favorites))
   }
 
-  static delete_favorites() {
+  static delete_favorites(id) {
+    let formData = {
+      listing_id: id
+    }
 
+    let configObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+    };
+
+    fetch(`${BACKEND_URL}/favorites/`, configObj)
+    .then(resp => resp.json())
+    .then(resp => App.clearMain())
   }
 }
