@@ -21,8 +21,10 @@ class FavoriteFetcher {
     .then(fav => console.log(fav))
   }
 
-  static find_favorites() {
-
+  static find_favorites(id) {
+    fetch(`${BACKEND_URL}/users/${id}`)
+    .then(user => user.json())
+    .then(user => Favorites.renderFavs(user.favorites))
   }
 
   static delete_favorites() {

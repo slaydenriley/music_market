@@ -13,6 +13,7 @@ const userEditForm = document.querySelector(".user-edit-form")
 const editListingForm = document.querySelector(".listing-edit-form")
 const edit_submit = document.querySelector("#edit_submit")
 const button_submit = document.querySelector(".edit_listing_submit")
+const favorites = document.querySelector("#favorites")
 const BACKEND_URL = "http://localhost:3000";
 
 // THESE VARIABLES WILL CHANGE //
@@ -88,6 +89,7 @@ class App {
     singleUser.style.display = "none";
     editListingForm.style.display = "none";
     userEditForm.style.display = "none"
+    favorites.style.display = "none"
   }
 
   static clearMain() {
@@ -111,6 +113,7 @@ class App {
 
     const listingsClass = new Listings;
     const usersClass = new Users;
+    const favs = new Favorites;
 
     //Hide Login + Signup Buttons
     login.style.display = "none";
@@ -122,6 +125,7 @@ class App {
     new_listing_button.style.display = "block";
     users.style.display = "block";
     account.style.display = "block";
+    favorites.style.display = "block"
     headerright.innerHTML += `<em> Welcome ${user.name}!</em>`;
     current_user_id = user.id;
   }
