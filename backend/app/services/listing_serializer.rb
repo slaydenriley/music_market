@@ -8,9 +8,11 @@ class ListingSerializer
       :only => [
         :title, :price, :description, :id, :user_id, :image_link],
       include:
-        [user: {:only => [:name, :email]}]
+        [user: {:only => [:name, :email]}, favorites: {:only => [:user_id, :listing_id]}]
     }
 
     @listing.to_json(options)
+
+
   end
 end
