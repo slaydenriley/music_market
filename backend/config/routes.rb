@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :listings
   resources :users
-  resources :photos
+  #resources :photos
 
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
