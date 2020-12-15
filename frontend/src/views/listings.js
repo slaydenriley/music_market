@@ -36,7 +36,8 @@ class Listings {
           <h2><em>${listing.title}</em></h2>
           <img class="thumbnail" src="${listing.image_link}">
           <p>Price: ${listing.price}</p>
-          <p id="button_link"><em>Learn More...</em></p></button>`;
+          <p id="button_link"><em>Learn More...</em></p></button>
+          <a href="#" id="${listing.id}" class="favorite_listing">Favorite this listing!</a>;`
 
           allListings.innerHTML += newHtml;
       }
@@ -45,13 +46,15 @@ class Listings {
         <button class="card" id="${listing.id}">
         <h2><em>${listing.title}</em></h2>
         <p>Price: ${listing.price}</p>
-        <p id="button_link"><em>Learn More...</em></p></button>`;
+        <p id="button_link"><em>Learn More...</em></p></button>
+        <button class="favorite_listing">Favorite this listing!</button>;`;
 
         allListings.innerHTML += newHtml;
       }
     });
 
     Listings.cardButtons();
+    Listings.favoriteButtons();
   };
 
 // RENDERS THE NEW LISTING FORM AND ENSURES IT'S BLANK //
@@ -107,6 +110,15 @@ class Listings {
       });
     });
   };
+
+  static favoriteButtons() {
+    let buttons = document.querySelectorAll(".favorite_listing")
+    buttons.forEach(button => {
+      button.addEventListener("click", function() {
+        FavoriteFetcher.create_favorites(button.id)
+      })
+    })
+  }
 
 // ADDS EVENT LISTERS TO LISTING EDIT AND DELETE BUTTONS //
   static editButton(listing) {
