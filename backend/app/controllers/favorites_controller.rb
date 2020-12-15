@@ -14,6 +14,10 @@ class FavoritesController < ApplicationController
   end
 
   def delete
+    listing_id = params[:listing_id].to_i
+    favorite = Favorite.find_by(listing_id: listing_id)
+    favorite.delete
+    render json: favorite
   end
 
   private
