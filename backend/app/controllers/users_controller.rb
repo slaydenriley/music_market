@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    user = User.find_by(id: params[:id])
+    user = User.find_by(id: user_params[:id])
     user.update(user_params)
     if user.save
       render json: UserSerializer.new(user).to_serialized_json
