@@ -29,7 +29,8 @@ class FavoriteFetcher {
 
   static delete_favorites(id) {
     let formData = {
-      listing_id: id
+      listing_id: id,
+      user_id: current_user_id
     }
 
     let configObj = {
