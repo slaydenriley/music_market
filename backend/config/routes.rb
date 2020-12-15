@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   patch '/users', to: 'users#edit'
 
+  post '/favorites', to: 'favorites#create'
+  delete '/favorites', to: 'favorites#delete'
+
 end
