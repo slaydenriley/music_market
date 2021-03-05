@@ -1,7 +1,7 @@
 <div align="center">
-<h1>🎶 Music Market 🎶</h1>
+<h1>🎸 Music Market 🎻</h1>
 <p>A marketplace for anyone wanting to sell their new or used instruments</p>
-<img max-height: 90% width="100%" src="./music.gif" alt="Music Market gif">
+<img max-height: 90% width="100%" border: "1px solid black" src="./music.gif" alt="Music Market gif">
 <hr/>
 <p>
   Explore:
