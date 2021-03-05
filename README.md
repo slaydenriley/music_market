@@ -1,8 +1,16 @@
-# Music Market
-### Rails and JS portfolio project for Flatiron School
+<div align="center">
+<h1>🎶 Music Market 🎶</h1>
+<p>A marketplace for anyone wanting to sell their new or used instruments</p>
+<img max-height: 90% width="100%" src="./music.gif" alt="Music Market gif">
+<hr/>
+<p>
+  Explore:
+  <a href="https://www.youtube.com/watch?v=6UhS9__NFjQ&t=3s&ab_channel=RileySlayden">VIDEO DEMO</a>
+  </p>
+</div>
 
 ## Overview
-This app is a marketplace for anyone wanting to sell used instruments! It uses a Rails API backend with a vanilla Javascript frontend, and is a SPA (single page application).
+This app is a marketplace for anyone wanting to sell used instruments! It uses a Rails API backend with a vanilla Javascript frontend, and is a SPA (single page application). Users can create, edit, and delete their account and listings, as well as save favorites.
 
 ## Installation
 1. Fork and clone this repository, and then within the backend directory execute:
