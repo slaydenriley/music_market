@@ -12,6 +12,10 @@
 ## Overview
 This app is a marketplace for anyone wanting to sell used instruments! It uses a Rails API backend with a vanilla Javascript frontend, and is a SPA (single page application). Users can create, edit, and delete their account and listings, as well as save favorites.
 
+## Inspiration
+
+Continuing with my music project theme, I thought it would be fun to build a "Craigslist" type marketplace for used musical instruments. The sole purpose of this project was to build my fundamental Javascript skills before moving into React. Overall, building an SPA in vanilla Javascript was a great exercise, but looking back, it sure does make me appreciate modern Javascript libraries (such as React).
+
 ## Installation
 1. Fork and clone this repository, and then within the backend directory execute:
 ```
@@ -31,6 +35,11 @@ $ rails s
 open index.html
 ```
 5. Create an account and log in to see other postings and create your own.
+
+## Contact
+👨‍💻 [LinkedIn](https://linkedin.com/in/rileyslayden) <br/>
+‍💻 [Portfolio](https://www.rileyslayden.com) <br/>
+📧 Email: slaydenriley@gmail.com
 
 ### Contributors
 Contributions are welcome, and can be made by either opening an issue or making a pull request to this repo.
